@@ -1,43 +1,83 @@
-# Mintlify Starter Kit
+# DelightLoop API Documentation
 
-Use the starter kit to get your docs deployed and ready to customize.
+Comprehensive API documentation for DelightLoop Campaign Service, built with [Mintlify](https://mintlify.com).
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+This documentation provides complete reference and guides for integrating with the DelightLoop API, including endpoints for managing contact lists, campaigns, recipients, gifts, and more.
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+## 📚 Documentation Structure
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+- **Getting Started**: Introduction, quickstart guide, authentication, and error handling
+- **Concepts**: Pagination, rate limits, and webhooks
+- **Use Cases**: Campaign workflows and contact import guides
+- **API Reference**: Complete OpenAPI specification with interactive "Try it" panels
 
-## Development
+## 🚀 Development
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
+### Prerequisites
 
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [pnpm](https://pnpm.io/) package manager
+
+### Setup
+
+1. Install dependencies:
+```bash
+pnpm install
 ```
+
+2. Install the [Mintlify CLI](https://www.npmjs.com/package/mint) globally:
+```bash
 npm i -g mint
+# or
+pnpm add -g mint
 ```
 
-Run the following command at the root of your documentation, where your `docs.json` is located:
-
-```
+3. Run the development server:
+```bash
 mint dev
 ```
 
-View your local preview at `http://localhost:3000`.
+4. View your local preview at `http://localhost:3000` (or the port shown in the terminal).
 
-## Publishing changes
+## 📝 Making Changes
 
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
+### Adding or Editing Content
 
-## Need help?
+- **Guide pages**: Edit `.mdx` files in the root directory (e.g., `authentication.mdx`, `errors.mdx`)
+- **API documentation**: The API reference is auto-generated from `api/openapi.public.json`
+- **Navigation**: Update `docs.json` to modify the sidebar structure
+- **Configuration**: Edit `docs.json` for branding, colors, and site settings
 
-### Troubleshooting
+### Updating the OpenAPI Specification
 
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
+The OpenAPI spec is located at `api/openapi.public.json`. To update it:
 
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+1. Download the latest spec from the API endpoint
+2. Run the deduplication script if needed:
+```bash
+node scripts/dedupe-openapi.mjs
+```
+
+## 🚢 Publishing Changes
+
+This repository is connected to Mintlify for automatic deployments. Changes are deployed to production automatically after pushing to the `main` branch.
+
+To set up the GitHub integration:
+1. Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app)
+2. Connect this repository to your Mintlify project
+
+## 🛠️ Troubleshooting
+
+- **Dev environment not running**: Run `mint update` to ensure you have the most recent version of the CLI
+- **404 errors**: Make sure you are running `mint dev` in the folder containing `docs.json`
+- **OpenAPI validation errors**: Check the OpenAPI spec with `mint openapi-check api/openapi.public.json`
+
+## 📖 Resources
+
+- [Mintlify Documentation](https://mintlify.com/docs)
+- [DelightLoop Website](https://delightloop.com)
+- [DelightLoop Dashboard](https://web.delightloop.ai)
+
+## 📄 License
+
+See [LICENSE](LICENSE) file for details.
