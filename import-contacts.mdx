@@ -1,0 +1,176 @@
+---
+title: Import Contacts
+description: How to import contacts into DelightLoop
+---
+
+There are several ways to import contacts into DelightLoop, depending on your use case and data format.
+
+## Method 1: Add Contacts to Existing List
+
+Add contacts directly to a contact list using the bulk add endpoint:
+
+```bash
+POST /api/campaigns/contact-lists/{listId}/contacts
+{
+  "contacts": [
+    {
+      "mailId": "john.doe@example.com",
+      "firstName": "John",
+      "lastName": "Doe",
+      "companyName": "Acme Corp",
+      "jobTitle": "Software Engineer",
+      "phoneNumber": "+1-555-123-4567"
+    },
+    {
+      "mailId": "jane.smith@example.com",
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "companyName": "Tech Inc"
+    }
+  ]
+}
+```
+
+## Method 2: Create Contact List with Contacts
+
+Create a new contact list and add contacts in one operation:
+
+```bash
+# Step 1: Create the list
+POST /api/campaigns/contact-lists
+{
+  "name": "Imported Contacts Q1",
+  "description": "Contacts imported from CRM"
+}
+
+# Step 2: Add contacts
+POST /api/campaigns/contact-lists/{listId}/contacts
+{
+  "contacts": [/* your contacts */]
+}
+```
+
+## Method 3: Using Contact IDs
+
+If contacts already exist in your DelightLoop account, add them by ID:
+
+```bash
+POST /api/campaigns/contact-lists/{listId}/contacts
+{
+  "contactIds": [
+    "contact_123",
+    "contact_456",
+    "contact_789"
+  ]
+}
+```
+
+## Contact Object Schema
+
+The contact object supports the following fields:
+
+```typescript
+{
+  mailId: string;              // Required: Email address
+  firstName?: string;           // Optional
+  lastName?: string;            // Optional
+  fullName?: string;            // Optional
+  companyName?: string;         // Optional
+  jobTitle?: string;            // Optional
+  phoneNumber?: string;         // Optional
+  linkedinUrl?: string;         // Optional
+  tags?: string[];              // Optional: Array of tags
+  address?: {                    // Optional: Address object
+    street?: string;
+    city?: string;
+    state?: string;
+    zipCode?: string;
+    country?: string;
+  };
+}
+```
+
+## Bulk Import Example
+
+Here's a complete example for importing contacts from a CSV or array:
+
+```javascript
+async function importContactsFromArray(contacts, listId) {
+  const BATCH_SIZE = 100; // Process in batches
+  
+  for (let i = 0; i < contacts.length; i += BATCH_SIZE) {
+    const batch = contacts.slice(i, i + BATCH_SIZE);
+    
+    const response = await fetch(
+      `https://new-campiagn-service-delightloop.patchup.health/api/campaigns/contact-lists/${listId}/contacts`,
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer YOUR_TOKEN',
+          'x-org-id': 'your-org-id',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          contacts: batch.map(contact => ({
+            mailId: contact.email,
+            firstName: contact.firstName,
+            lastName: contact.lastName,
+            companyName: contact.company,
+            jobTitle: contact.title
+          }))
+        })
+      }
+    );
+    
+    if (!response.ok) {
+      const error = await response.json();
+      console.error(`Batch ${i / BATCH_SIZE + 1} failed:`, error);
+      // Handle error (retry, skip, etc.)
+    }
+    
+    // Rate limiting: wait between batches
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  }
+}
+```
+
+## CSV Import Workflow
+
+1. **Parse your CSV file** into contact objects
+2. **Validate email addresses** and required fields
+3. **Create or select a contact list**
+4. **Batch import contacts** in chunks of 100
+5. **Handle errors** and retry failed batches
+
+## Data Enrichment
+
+After importing, you can enrich contact data:
+
+```bash
+POST /api/campaigns/enrichment/enrich
+{
+  "firstname": "John",
+  "lastname": "Doe",
+  "company_name": "Acme Corp",
+  "linkedin_url": "https://linkedin.com/in/johndoe"
+}
+```
+
+## Best Practices
+
+1. **Validate email addresses** before importing
+2. **Use batch processing** for large imports
+3. **Handle duplicates** appropriately
+4. **Respect rate limits** when importing
+5. **Monitor import progress** for large datasets
+6. **Clean data** before importing (normalize formats)
+
+## Error Handling
+
+Common import errors:
+
+- **Invalid email format**: Ensure emails are valid
+- **Duplicate contacts**: Contacts with the same email may be merged
+- **Rate limiting**: Implement retry logic with backoff
+- **Validation errors**: Check required fields and formats
+

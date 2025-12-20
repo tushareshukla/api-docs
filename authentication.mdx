@@ -1,0 +1,64 @@
+---
+title: Authentication
+description: Learn how to authenticate with the DelightLoop API
+---
+
+All API requests require authentication using a Bearer token. Include your API token in the Authorization header of every request.
+
+## Getting Your API Token
+
+1. Log in to your DelightLoop account at [https://web.delightloop.ai](https://web.delightloop.ai)
+2. Navigate to **Settings** → **API Keys**
+3. Generate a new API token or use an existing one
+4. Copy the token securely
+
+<Warning>
+Keep your API tokens secure and never commit them to version control. Treat them like passwords.
+</Warning>
+
+## Using Your API Token
+
+Include your token in the `Authorization` header using the Bearer authentication scheme:
+
+```bash
+Authorization: Bearer YOUR_API_TOKEN
+```
+
+### Example Request
+
+```bash
+curl -X GET "https://new-campiagn-service-delightloop.patchup.health/api/campaigns" \
+  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  -H "x-org-id: your-org-id"
+```
+
+## Required Headers
+
+All API requests require the following headers:
+
+- **`Authorization`**: Bearer token (required)
+- **`x-org-id`**: Your organization ID (required)
+- **`Content-Type`**: `application/json` (required for POST/PUT requests)
+- **`x-custom-lang`**: Language preference (optional, defaults to "en")
+
+## Organization ID
+
+The `x-org-id` header identifies which organization context the request should be executed in. You can find your organization ID in your account settings.
+
+## Token Expiration
+
+API tokens do not expire unless manually revoked. If you suspect your token has been compromised, revoke it immediately and generate a new one.
+
+## Error Responses
+
+If authentication fails, you'll receive a `401 Unauthorized` response:
+
+```json
+{
+  "success": false,
+  "statusCode": 401,
+  "message": "Unauthorized",
+  "error": "Invalid or missing authentication token"
+}
+```
+

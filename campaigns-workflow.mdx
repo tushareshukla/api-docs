@@ -1,0 +1,195 @@
+---
+title: Campaigns Workflow
+description: Step-by-step guide to creating and managing campaigns
+---
+
+This guide walks you through the complete workflow for creating and managing gift campaigns using the DelightLoop API.
+
+## Campaign Creation Workflow
+
+### Step 1: Prepare Your Contact List
+
+First, create or use an existing contact list:
+
+```bash
+POST /api/campaigns/contact-lists
+{
+  "name": "Q1 2024 Prospects",
+  "description": "High-value prospects for Q1 campaign"
+}
+```
+
+### Step 2: Add Contacts
+
+Add contacts to your list either by IDs or as new contact objects:
+
+```bash
+POST /api/campaigns/contact-lists/{listId}/contacts
+{
+  "contactIds": ["contact_123", "contact_456"]
+}
+```
+
+Or add new contacts:
+
+```bash
+POST /api/campaigns/contact-lists/{listId}/contacts
+{
+  "contacts": [
+    {
+      "mailId": "john.doe@example.com",
+      "firstName": "John",
+      "lastName": "Doe",
+      "companyName": "Acme Corp"
+    }
+  ]
+}
+```
+
+### Step 3: Select Gifts
+
+Choose gifts from your catalog or create new ones:
+
+```bash
+GET /api/campaigns/gifts?status=available
+```
+
+### Step 4: Create Campaign
+
+Create your campaign with the selected contacts and gifts:
+
+```bash
+POST /api/campaigns
+{
+  "name": "Q1 2024 Outreach",
+  "description": "Q1 campaign for high-value prospects",
+  "campaignData": {
+    "contactListId": "list_123",
+    "giftIds": ["gift_456"],
+    "emailTemplateId": "template_789"
+  }
+}
+```
+
+### Step 5: Review and Launch
+
+Review campaign details:
+
+```bash
+GET /api/campaigns/{campaignId}
+```
+
+Launch the campaign when ready:
+
+```bash
+POST /api/campaigns/{campaignId}/launch
+```
+
+## Campaign Management
+
+### Check Campaign Status
+
+```bash
+GET /api/campaigns/{campaignId}
+```
+
+Status values:
+- `draft`: Campaign is being prepared
+- `in_progress`: Campaign is active
+- `preparing`: Campaign is being set up
+- `live`: Campaign is live and sending
+- `completed`: Campaign has finished
+
+### Monitor Recipients
+
+Track recipient status:
+
+```bash
+GET /api/campaigns/{campaignId}/recipients?status=invite_sent
+```
+
+### View Campaign Metrics
+
+Get campaign performance metrics:
+
+```bash
+GET /api/campaigns/{campaignId}/metrics
+```
+
+## Complete Example
+
+```javascript
+async function createCampaign() {
+  // 1. Create contact list
+  const listResponse = await fetch('/api/campaigns/contact-lists', {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer TOKEN',
+      'x-org-id': 'org-id',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: 'My Campaign List',
+      description: 'Contacts for my campaign'
+    })
+  });
+  const list = await listResponse.json();
+  
+  // 2. Add contacts
+  await fetch(`/api/campaigns/contact-lists/${list.data.listId}/contacts`, {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer TOKEN',
+      'x-org-id': 'org-id',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      contacts: [
+        {
+          mailId: 'contact@example.com',
+          firstName: 'John',
+          lastName: 'Doe'
+        }
+      ]
+    })
+  });
+  
+  // 3. Create campaign
+  const campaignResponse = await fetch('/api/campaigns', {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer TOKEN',
+      'x-org-id': 'org-id',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: 'My Campaign',
+      campaignData: {
+        contactListId: list.data.listId,
+        giftIds: ['gift_123']
+      }
+    })
+  });
+  const campaign = await campaignResponse.json();
+  
+  // 4. Launch campaign
+  await fetch(`/api/campaigns/${campaign.data.campaignId}/launch`, {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer TOKEN',
+      'x-org-id': 'org-id'
+    }
+  });
+  
+  return campaign.data;
+}
+```
+
+## Best Practices
+
+1. **Validate data** before creating campaigns
+2. **Test with small lists** first
+3. **Monitor campaign status** regularly
+4. **Handle errors gracefully** with retry logic
+5. **Use webhooks** for real-time updates
+

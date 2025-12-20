@@ -1,0 +1,123 @@
+---
+title: Rate Limits
+description: Understanding API rate limits and how to handle them
+---
+
+The DelightLoop API implements rate limiting to ensure fair usage and maintain service quality for all users.
+
+## Rate Limit Overview
+
+Rate limits are applied per organization and are designed to accommodate normal usage patterns. The specific limits depend on your plan and usage tier.
+
+## Rate Limit Headers
+
+Every API response includes rate limit information in the headers:
+
+- **`X-RateLimit-Limit`**: Maximum number of requests allowed per window
+- **`X-RateLimit-Remaining`**: Number of requests remaining in the current window
+- **`X-RateLimit-Reset`**: Unix timestamp when the rate limit window resets
+
+### Example Headers
+
+```
+X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 987
+X-RateLimit-Reset: 1703123456
+```
+
+## Rate Limit Exceeded
+
+When you exceed the rate limit, you'll receive a `429 Too Many Requests` response:
+
+```json
+{
+  "success": false,
+  "statusCode": 429,
+  "message": "Too many requests",
+  "error": "Rate limit exceeded. Please try again in 60 seconds."
+}
+```
+
+The response includes a `Retry-After` header indicating when you can retry:
+
+```
+Retry-After: 60
+```
+
+## Handling Rate Limits
+
+### Exponential Backoff
+
+Implement exponential backoff when you hit rate limits:
+
+```javascript
+async function makeRequestWithRetry(url, options, retries = 3) {
+  for (let i = 0; i < retries; i++) {
+    const response = await fetch(url, options);
+    
+    if (response.status === 429) {
+      const retryAfter = parseInt(response.headers.get('Retry-After') || '60');
+      const delay = retryAfter * 1000 * Math.pow(2, i); // Exponential backoff
+      
+      console.log(`Rate limited. Retrying after ${delay}ms...`);
+      await new Promise(resolve => setTimeout(resolve, delay));
+      continue;
+    }
+    
+    return response;
+  }
+  
+  throw new Error('Max retries exceeded');
+}
+```
+
+### Request Throttling
+
+Throttle your requests to stay within limits:
+
+```javascript
+class RateLimiter {
+  constructor(maxRequests, windowMs) {
+    this.maxRequests = maxRequests;
+    this.windowMs = windowMs;
+    this.requests = [];
+  }
+
+  async waitIfNeeded() {
+    const now = Date.now();
+    
+    // Remove old requests outside the window
+    this.requests = this.requests.filter(time => now - time < this.windowMs);
+    
+    if (this.requests.length >= this.maxRequests) {
+      const oldestRequest = this.requests[0];
+      const waitTime = this.windowMs - (now - oldestRequest);
+      await new Promise(resolve => setTimeout(resolve, waitTime));
+      this.requests.shift();
+    }
+    
+    this.requests.push(now);
+  }
+}
+
+// Usage
+const limiter = new RateLimiter(100, 60000); // 100 requests per minute
+
+async function makeRequest(url) {
+  await limiter.waitIfNeeded();
+  return fetch(url);
+}
+```
+
+## Best Practices
+
+1. **Monitor rate limit headers** to track your usage
+2. **Implement exponential backoff** for 429 responses
+3. **Batch requests** when possible to reduce API calls
+4. **Cache responses** to minimize redundant requests
+5. **Use webhooks** instead of polling when available
+
+## Contact Support
+
+If you need higher rate limits for your use case, contact [support@delightloop.com](mailto:support@delightloop.com) to discuss your requirements.
+

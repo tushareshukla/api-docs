@@ -1,0 +1,125 @@
+---
+title: Errors
+description: Understanding API errors and how to handle them
+---
+
+The DelightLoop API uses standard HTTP status codes to indicate success or failure of requests. All error responses follow a consistent format.
+
+## Error Response Format
+
+All error responses include the following structure:
+
+```json
+{
+  "success": false,
+  "statusCode": 400,
+  "message": "Error description",
+  "error": "Detailed error information"
+}
+```
+
+## HTTP Status Codes
+
+### Success Codes
+
+- **200 OK**: Request succeeded
+- **201 Created**: Resource created successfully
+- **204 No Content**: Request succeeded with no content to return
+
+### Client Error Codes
+
+- **400 Bad Request**: Invalid request parameters or body
+- **401 Unauthorized**: Missing or invalid authentication token
+- **403 Forbidden**: Valid token but insufficient permissions
+- **404 Not Found**: Resource doesn't exist
+- **409 Conflict**: Resource conflict (e.g., duplicate name)
+- **422 Unprocessable Entity**: Validation errors
+
+### Server Error Codes
+
+- **500 Internal Server Error**: Unexpected server error
+- **503 Service Unavailable**: Service temporarily unavailable
+
+## Common Error Scenarios
+
+### Invalid Request Body
+
+```json
+{
+  "success": false,
+  "statusCode": 400,
+  "message": "Invalid input data",
+  "error": "Missing required field: name"
+}
+```
+
+### Authentication Error
+
+```json
+{
+  "success": false,
+  "statusCode": 401,
+  "message": "Unauthorized",
+  "error": "Invalid or missing authentication token"
+}
+```
+
+### Resource Not Found
+
+```json
+{
+  "success": false,
+  "statusCode": 404,
+  "message": "Resource not found",
+  "error": "Contact list with ID 'list_123' not found"
+}
+```
+
+### Validation Errors
+
+```json
+{
+  "success": false,
+  "statusCode": 422,
+  "message": "Validation failed",
+  "error": {
+    "name": "Name must be at least 3 characters",
+    "email": "Invalid email format"
+  }
+}
+```
+
+### Conflict Error
+
+```json
+{
+  "success": false,
+  "statusCode": 409,
+  "message": "Conflict",
+  "error": "Contact list with the same name already exists"
+}
+```
+
+## Error Handling Best Practices
+
+1. **Always check the status code** before processing the response body
+2. **Read the error message** for human-readable descriptions
+3. **Check the error field** for detailed technical information
+4. **Implement retry logic** for 5xx errors with exponential backoff
+5. **Log errors** for debugging and monitoring
+
+## Rate Limit Errors
+
+When rate limits are exceeded, you'll receive a `429 Too Many Requests` response:
+
+```json
+{
+  "success": false,
+  "statusCode": 429,
+  "message": "Too many requests",
+  "error": "Rate limit exceeded. Please try again in 60 seconds."
+}
+```
+
+Check the `Retry-After` header to know when to retry the request.
+

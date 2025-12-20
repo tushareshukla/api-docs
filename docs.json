@@ -1,0 +1,102 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "willow",
+  "name": "Delightloop",
+  "colors": {
+    "primary": "#7A5AF8",
+    "light": "#9B8AFB",
+    "dark": "#6938EF"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "index",
+              "quickstart",
+              "authentication",
+              "errors"
+            ]
+          },
+          {
+            "group": "Concepts",
+            "pages": [
+              "pagination",
+              "rate-limits",
+              "webhooks"
+            ]
+          },
+          {
+            "group": "Use Cases",
+            "pages": [
+              "campaigns-workflow",
+              "import-contacts"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API reference",
+        "groups": [
+          {
+            "group": "Campaign Service API",
+            "openapi": "/api/openapi.public.json"
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "DelightLoop",
+          "href": "https://delightloop.com",
+          "icon": "sparkles"
+        },
+        {
+          "anchor": "Docs",
+          "href": "https://docs.delightloop.com",
+          "icon": "book-open-cover"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/dark.png",
+    "dark": "/logo/light.png",
+    "href": "/"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "https://delightloop.com/support"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Open App",
+      "href": "https://web.delightloop.ai"
+    }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
+  },
+  "footer": {
+    "socials": {
+      "linkedin": "https://linkedin.com/company/delightloop"
+    }
+  }
+}

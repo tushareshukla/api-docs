@@ -1,0 +1,101 @@
+---
+title: Pagination
+description: How to paginate through API responses
+---
+
+Most list endpoints in the DelightLoop API support pagination to efficiently handle large datasets.
+
+## Pagination Parameters
+
+Use query parameters to control pagination:
+
+- **`page`**: Page number (default: 1, minimum: 1)
+- **`limit`**: Number of items per page (default: 12, maximum: 100)
+
+### Example Request
+
+```bash
+GET /api/campaigns/contact-lists?page=2&limit=25
+```
+
+## Pagination Response Format
+
+Paginated responses include a `pagination` object with metadata:
+
+```json
+{
+  "success": true,
+  "statusCode": 200,
+  "message": "Contact lists retrieved successfully",
+  "data": {
+    "items": [
+      // ... array of items
+    ],
+    "pagination": {
+      "page": 2,
+      "limit": 25,
+      "total": 150,
+      "totalPages": 6,
+      "hasNext": true,
+      "hasPrev": true
+    }
+  }
+}
+```
+
+## Pagination Metadata Fields
+
+- **`page`**: Current page number
+- **`limit`**: Items per page
+- **`total`**: Total number of items across all pages
+- **`totalPages`**: Total number of pages
+- **`hasNext`**: Whether there's a next page
+- **`hasPrev`**: Whether there's a previous page
+
+## Example: Fetching All Pages
+
+```javascript
+async function fetchAllContactLists() {
+  let allLists = [];
+  let page = 1;
+  let hasMore = true;
+
+  while (hasMore) {
+    const response = await fetch(
+      `https://new-campiagn-service-delightloop.patchup.health/api/campaigns/contact-lists?page=${page}&limit=100`,
+      {
+        headers: {
+          'Authorization': 'Bearer YOUR_TOKEN',
+          'x-org-id': 'your-org-id'
+        }
+      }
+    );
+    
+    const data = await response.json();
+    allLists = allLists.concat(data.data.items);
+    
+    hasMore = data.data.pagination.hasNext;
+    page++;
+  }
+
+  return allLists;
+}
+```
+
+## Best Practices
+
+1. **Use appropriate page sizes**: Balance between number of requests and response size
+2. **Respect rate limits**: Don't paginate too aggressively
+3. **Cache results**: Store paginated data when appropriate
+4. **Handle edge cases**: Check for empty pages and handle errors gracefully
+
+## Sorting with Pagination
+
+Many endpoints support sorting alongside pagination:
+
+```bash
+GET /api/campaigns/contact-lists?page=1&limit=25&sortBy=name&sortOrder=asc
+```
+
+See individual endpoint documentation for available sort fields.
+

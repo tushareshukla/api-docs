@@ -1,0 +1,116 @@
+---
+title: Webhooks
+description: Receive real-time notifications from DelightLoop
+---
+
+Webhooks allow you to receive real-time notifications when events occur in your DelightLoop account, eliminating the need to poll the API.
+
+## How Webhooks Work
+
+1. **Register a webhook URL** in your DelightLoop account settings
+2. **DelightLoop sends HTTP POST requests** to your URL when events occur
+3. **Your server processes the webhook** and responds with a 200 status code
+
+## Webhook Events
+
+DelightLoop supports the following webhook events:
+
+- **`campaign.created`**: A new campaign is created
+- **`campaign.updated`**: A campaign is updated
+- **`campaign.completed`**: A campaign is completed
+- **`recipient.status_changed`**: A recipient's status changes
+- **`recipient.delivered`**: A gift is delivered to a recipient
+- **`recipient.acknowledged`**: A recipient acknowledges receipt
+- **`contact_list.created`**: A new contact list is created
+- **`contact_list.updated`**: A contact list is updated
+
+## Webhook Payload Format
+
+All webhooks follow this structure:
+
+```json
+{
+  "event": "recipient.status_changed",
+  "timestamp": "2024-01-15T10:30:00.000Z",
+  "data": {
+    "recipientId": "recipient_123",
+    "campaignId": "camp_456",
+    "oldStatus": "invite_sent",
+    "newStatus": "address_confirmed"
+  }
+}
+```
+
+## Webhook Security
+
+### Signature Verification
+
+DelightLoop signs all webhook requests with a secret key. Verify the signature to ensure the request is authentic:
+
+```javascript
+const crypto = require('crypto');
+
+function verifyWebhookSignature(payload, signature, secret) {
+  const hmac = crypto.createHmac('sha256', secret);
+  const digest = hmac.update(JSON.stringify(payload)).digest('hex');
+  return crypto.timingSafeEqual(
+    Buffer.from(signature),
+    Buffer.from(digest)
+  );
+}
+
+// Usage
+app.post('/webhook', express.raw({ type: 'application/json' }), (req, res) => {
+  const signature = req.headers['x-delightloop-signature'];
+  const isValid = verifyWebhookSignature(req.body, signature, process.env.WEBHOOK_SECRET);
+  
+  if (!isValid) {
+    return res.status(401).send('Invalid signature');
+  }
+  
+  // Process webhook
+  const event = JSON.parse(req.body);
+  // ... handle event
+  
+  res.status(200).send('OK');
+});
+```
+
+### Headers
+
+Webhook requests include the following headers:
+
+- **`X-DelightLoop-Event`**: The event type
+- **`X-DelightLoop-Signature`**: HMAC SHA256 signature
+- **`X-DelightLoop-Timestamp`**: Unix timestamp of the event
+- **`Content-Type`**: `application/json`
+
+## Webhook Response
+
+Your webhook endpoint should:
+
+1. **Return 200 OK** within 5 seconds to acknowledge receipt
+2. **Process the event asynchronously** if handling takes longer
+3. **Return appropriate error codes** if processing fails
+
+## Retry Logic
+
+If your webhook endpoint doesn't respond with 200 OK, DelightLoop will retry:
+
+- **Initial retry**: After 1 minute
+- **Subsequent retries**: Exponential backoff (2, 4, 8, 16 minutes)
+- **Maximum retries**: 5 attempts
+- **Total time**: Up to 31 minutes
+
+## Testing Webhooks
+
+Use the webhook testing tool in your DelightLoop dashboard to send test events to your endpoint.
+
+## Best Practices
+
+1. **Verify signatures** to ensure webhook authenticity
+2. **Idempotency**: Handle duplicate events gracefully
+3. **Async processing**: Process events asynchronously when possible
+4. **Logging**: Log all webhook events for debugging
+5. **Error handling**: Return appropriate status codes
+
