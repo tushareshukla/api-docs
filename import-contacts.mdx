@@ -106,8 +106,7 @@ async function importContactsFromArray(contacts, listId) {
       {
         method: 'POST',
         headers: {
-          'Authorization': 'Bearer YOUR_TOKEN',
-          'x-org-id': 'your-org-id',
+          'x-api-key': 'your-api-key',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({

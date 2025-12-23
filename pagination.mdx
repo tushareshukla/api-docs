@@ -65,8 +65,7 @@ async function fetchAllContactLists() {
       `https://new-campiagn-service-delightloop.patchup.health/api/campaigns/contact-lists?page=${page}&limit=100`,
       {
         headers: {
-          'Authorization': 'Bearer YOUR_TOKEN',
-          'x-org-id': 'your-org-id'
+          'x-api-key': 'your-api-key'
         }
       }
     );

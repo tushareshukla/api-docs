@@ -7,7 +7,7 @@
         "operationId": "ContactListsController_create",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -54,9 +54,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Create a new contact list",
         "tags": [
@@ -68,7 +66,7 @@
         "operationId": "ContactListsController_getAllContactLists",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -234,9 +232,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Get all contact lists with pagination and filters",
         "tags": [
@@ -250,7 +246,7 @@
         "operationId": "ContactListsController_update",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -310,9 +306,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Update contact list",
         "tags": [
@@ -326,7 +320,7 @@
         "operationId": "ContactListsController_archive",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -365,9 +359,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Archive contact list",
         "tags": [
@@ -381,7 +373,7 @@
         "operationId": "ContactListsController_getDetailedContacts",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -580,9 +572,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Get detailed contacts in list with pagination and filters",
         "tags": [
@@ -596,7 +586,7 @@
         "operationId": "ContactListsController_getContactListFilterData",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -639,9 +629,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Get filter data for contacts in list",
         "tags": [
@@ -655,7 +643,7 @@
         "operationId": "ContactListsController_bulkAddContactsToList",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -712,9 +700,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Bulk add contacts to contact list",
         "tags": [
@@ -727,16 +713,7 @@
         "operationId": "ContactsController_getContactSchema",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -769,16 +746,7 @@
         "operationId": "ContactsController_getContactForm",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -811,16 +779,7 @@
         "operationId": "ContactsController_createContact",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -872,16 +831,7 @@
         "operationId": "ContactsController_getAllContacts",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -957,16 +907,7 @@
         "operationId": "ContactsController_bulkCreateContacts",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -1020,16 +961,7 @@
         "operationId": "ContactsController_searchContacts",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -1116,16 +1048,7 @@
         "operationId": "ContactsController_getContactById",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -1177,16 +1100,7 @@
         "operationId": "ContactsController_updateContact",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -1253,16 +1167,7 @@
         "operationId": "ContactsController_removeContactFromList",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -1334,16 +1239,7 @@
         "operationId": "ContactsController_bulkRemoveContactsFromList",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -1410,16 +1306,7 @@
         "operationId": "ContactsController_getLinkedInProfileByUrl",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -1468,16 +1355,7 @@
         "operationId": "ContactsController_getContactListAnalytics",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -1531,16 +1409,7 @@
         "operationId": "ContactsController_getContactListsAnalytics",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -1597,16 +1466,7 @@
         "operationId": "ContactsController_getContactsByIds",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -1901,16 +1761,7 @@
         "operationId": "CompaniesController_getCompanySchema",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -1943,16 +1794,7 @@
         "operationId": "CompaniesController_getCompanyForm",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -1986,16 +1828,7 @@
         "operationId": "CompaniesController_searchCompanies",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -2081,16 +1914,7 @@
         "operationId": "CompaniesController_createCompany",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -2138,16 +1962,7 @@
         "operationId": "CompaniesController_findCompanies",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -2228,16 +2043,7 @@
         "operationId": "CompaniesController_findCompany",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -2284,16 +2090,7 @@
         "operationId": "CompaniesController_updateCompany",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -2350,16 +2147,7 @@
         "operationId": "CompaniesController_deleteCompany",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -2401,16 +2189,7 @@
         "operationId": "CompaniesController_bulkCreateCompanies",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -2456,16 +2235,7 @@
         "operationId": "CompaniesController_createCompanyList",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -2506,16 +2276,7 @@
         "operationId": "CompaniesController_findCompanyLists",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -2572,16 +2333,7 @@
         "operationId": "CompaniesController_findCompanyList",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -2621,16 +2373,7 @@
         "operationId": "CompaniesController_updateCompanyList",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -2680,16 +2423,7 @@
         "operationId": "CompaniesController_deleteCompanyList",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -2731,16 +2465,7 @@
         "operationId": "CompaniesController_addCompaniesToList",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -2790,16 +2515,7 @@
         "operationId": "CompaniesController_getCompaniesInList",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -2855,16 +2571,7 @@
         "operationId": "CompaniesController_removeCompaniesFromList",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -2906,18 +2613,9 @@
         "operationId": "ExternalMicroserviceController_healthCheck",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
             "required": true,
             "schema": {
               "type": "string"
@@ -2948,18 +2646,9 @@
         "operationId": "ExternalMicroserviceController_makeApiCall",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
             "required": true,
             "schema": {
               "type": "string"
@@ -2990,18 +2679,9 @@
         "operationId": "ExternalMicroserviceController_makeAuthenticatedCall",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
             "required": true,
             "schema": {
               "type": "string"
@@ -3032,18 +2712,9 @@
         "operationId": "ExternalMicroserviceController_handleWebhook",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
             "required": true,
             "schema": {
               "type": "string"
@@ -3075,18 +2746,9 @@
         "operationId": "ExternalMicroserviceController_sendBulkEmails",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
             "required": true,
             "schema": {
               "type": "string"
@@ -3139,18 +2801,9 @@
         "operationId": "ExternalMicroserviceController_sendSingleEmail",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
             "required": true,
             "schema": {
               "type": "string"
@@ -3203,18 +2856,9 @@
         "operationId": "ExternalMicroserviceController_getUsersByOrganization",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
             "required": true,
             "schema": {
               "type": "string"
@@ -3310,16 +2954,7 @@
         "operationId": "GoalsController_create",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -3366,9 +3001,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Create a new goal",
         "tags": [
@@ -3380,16 +3013,7 @@
         "operationId": "GoalsController_findAll",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -3544,9 +3168,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Get all goals",
         "tags": [
@@ -3560,16 +3182,7 @@
         "operationId": "GoalsController_getStats",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -3634,9 +3247,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Get goal statistics",
         "tags": [
@@ -3650,16 +3261,7 @@
         "operationId": "GoalsController_findOne",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -3702,9 +3304,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Get goal by ID",
         "tags": [
@@ -3716,16 +3316,7 @@
         "operationId": "GoalsController_update",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -3785,9 +3376,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Update goal",
         "tags": [
@@ -3799,16 +3388,7 @@
         "operationId": "GoalsController_delete",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -3844,9 +3424,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Delete goal",
         "tags": [
@@ -4025,18 +3603,9 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
             "required": true,
             "schema": {
               "type": "string"
@@ -4073,18 +3642,9 @@
         "operationId": "EventsController_create",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
             "required": true,
             "schema": {
               "type": "string"
@@ -4144,18 +3704,9 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
             "required": true,
             "schema": {
               "type": "string"
@@ -4203,18 +3754,9 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
             "required": true,
             "schema": {
               "type": "string"
@@ -4277,18 +3819,9 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
             "required": true,
             "schema": {
               "type": "string"
@@ -4329,16 +3862,7 @@
         "operationId": "GiftsController_create",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -4451,16 +3975,7 @@
             }
           },
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -4500,16 +4015,7 @@
         "operationId": "GiftsController_bulkCreate",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -4571,16 +4077,7 @@
             }
           },
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -4630,16 +4127,7 @@
             }
           },
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -4699,16 +4187,7 @@
             }
           },
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -4753,16 +4232,7 @@
             }
           },
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -4805,16 +4275,7 @@
         "operationId": "GiftsController_getRandomGiftByBudget",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -4988,16 +4449,7 @@
         "operationId": "GiftCollectionsController_create",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -5045,16 +4497,7 @@
         "operationId": "GiftCollectionsController_findAll",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -5097,16 +4540,7 @@
         "operationId": "GiftCollectionsController_findOne",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -5156,16 +4590,7 @@
         "operationId": "GiftCollectionsController_delete",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -5210,16 +4635,7 @@
         "operationId": "GiftCollectionsController_mapGifts",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -5272,16 +4688,7 @@
         "operationId": "GiftCollectionsController_removeGifts",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -5333,16 +4740,7 @@
         "operationId": "EmailTemplatesController_create",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -5393,16 +4791,7 @@
         "operationId": "EmailTemplatesController_findAll",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -5488,16 +4877,7 @@
         "operationId": "EmailTemplatesController_findOne",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -5547,16 +4927,7 @@
         "operationId": "EmailTemplatesController_update",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -5609,16 +4980,7 @@
         "operationId": "EmailTemplatesController_delete",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -5674,7 +5036,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -5813,18 +5175,9 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
             "required": true,
             "schema": {
               "type": "string"
@@ -5906,7 +5259,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -5960,7 +5313,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -6104,7 +5457,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -6263,7 +5616,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -6317,16 +5670,7 @@
             }
           },
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID (for filtering user-specific campaigns)",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -6367,7 +5711,7 @@
         "operationId": "CampaignsController_getOrganizationDeliveryMetrics",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -6418,7 +5762,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -6482,7 +5826,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -6680,16 +6024,7 @@
             }
           },
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -6852,7 +6187,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -6896,16 +6231,7 @@
         "operationId": "CampaignsController_createCampaignPreview",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -6969,16 +6295,7 @@
             }
           },
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -7045,16 +6362,7 @@
             }
           },
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -7121,7 +6429,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -7187,7 +6495,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "required": true,
             "in": "header",
             "description": "Organization ID",
@@ -7221,7 +6529,7 @@
         "operationId": "CampaignsController_getOrganizationErrors",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "required": true,
             "in": "header",
             "description": "Organization ID",
@@ -7307,7 +6615,7 @@
         "operationId": "CampaignsController_getErrorStats",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "required": true,
             "in": "header",
             "description": "Organization ID",
@@ -7368,19 +6676,10 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "required": true,
             "in": "header",
             "description": "Organization ID",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-user-id",
-            "required": true,
-            "in": "header",
-            "description": "User ID",
             "schema": {
               "type": "string"
             }
@@ -7421,7 +6720,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -7488,7 +6787,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -8957,16 +8256,7 @@
         "operationId": "RecipientAssignmentsController_assignRecipients",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID (admin or campaign creator)",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -9059,9 +8349,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Assign recipients to organization users with array-based mapping",
         "tags": [
@@ -9075,16 +8363,7 @@
         "operationId": "RecipientAssignmentsController_unassignRecipients",
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID (admin or campaign creator)",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -9165,9 +8444,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Unassign recipients from organization users",
         "tags": [
@@ -9528,7 +8805,7 @@
         "operationId": "TemplatesController_createTemplate",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -9643,7 +8920,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -9694,7 +8971,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -9746,7 +9023,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -9962,18 +9239,9 @@
         "operationId": "IcpPersonasController_create",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "User ID",
             "required": true,
             "schema": {
               "type": "string"
@@ -10127,7 +9395,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -10178,7 +9446,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -10230,7 +9498,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -10295,7 +9563,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -10342,7 +9610,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -10396,7 +9664,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -10500,7 +9768,7 @@
             }
           },
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -10700,7 +9968,7 @@
         "operationId": "AudienceListsController_create",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -10747,9 +10015,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Create a new audience list",
         "tags": [
@@ -10761,7 +10027,7 @@
         "operationId": "AudienceListsController_findAll",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -10884,9 +10150,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Get all audience lists",
         "tags": [
@@ -10900,7 +10164,7 @@
         "operationId": "AudienceListsController_getContacts",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -11050,9 +10314,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Get all contacts in audience list",
         "tags": [
@@ -11064,7 +10326,7 @@
         "operationId": "AudienceListsController_bulkAddContacts",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -11137,9 +10399,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Bulk add contacts to audience list",
         "tags": [
@@ -11153,7 +10413,7 @@
         "operationId": "AudienceListsController_bulkCreateContactObjects",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -11250,9 +10510,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Bulk create and add contact objects to audience list",
         "tags": [
@@ -11266,7 +10524,7 @@
         "operationId": "AudienceListsController_updateStatus",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -11323,9 +10581,7 @@
           }
         },
         "security": [
-          {
-            "bearer": []
-          }
+          {}
         ],
         "summary": "Update audience list status",
         "tags": [
@@ -11339,7 +10595,7 @@
         "operationId": "EnrichmentController_enrichRecipientsProfileImages",
         "parameters": [
           {
-            "name": "x-org-id",
+            "name": "x-api-key",
             "in": "header",
             "description": "Organization ID",
             "required": true,
@@ -11750,13 +11006,6 @@
     }
   ],
   "components": {
-    "securitySchemes": {
-      "bearer": {
-        "scheme": "bearer",
-        "bearerFormat": "JWT",
-        "type": "http"
-      }
-    },
     "schemas": {
       "ContactListSourceDto": {
         "type": "object",
