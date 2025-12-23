@@ -14,14 +14,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "requestBody": {
@@ -156,14 +148,6 @@
               "example": true,
               "type": "boolean"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -263,14 +247,6 @@
               "example": "list_67890",
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "requestBody": {
@@ -336,14 +312,6 @@
             "schema": {
               "example": "list_67890",
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -493,14 +461,6 @@
               "example": "campaign_123,campaign_456",
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -603,14 +563,6 @@
               "example": "list_clx7k2m0p0001j5k8c5z9w8h4",
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -659,14 +611,6 @@
             "schema": {
               "example": "list_clx7k2m0p0001j5k8c5z9w8h4",
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -720,14 +664,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -753,14 +689,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -785,14 +713,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -871,14 +791,6 @@
               "example": "john",
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -913,14 +825,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -1011,14 +915,6 @@
               "example": false,
               "type": "boolean"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -1065,14 +961,6 @@
               "example": "contact_123abc",
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -1116,14 +1004,6 @@
             "schema": {
               "example": "contact_123abc",
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -1194,14 +1074,6 @@
               "example": "list_123abc456def",
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -1255,14 +1127,6 @@
             "schema": {
               "example": "list_123abc456def",
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -1321,14 +1185,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -1372,14 +1228,6 @@
               "example": "list_123abc456def",
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -1415,14 +1263,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -1473,14 +1313,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "requestBody": {
@@ -1520,16 +1352,7 @@
     "/api/campaigns/azure-storage/upload": {
       "post": {
         "operationId": "AzureStorageController_uploadFile",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "required": true,
           "description": "File to upload with optional file key",
@@ -1584,16 +1407,7 @@
     "/api/campaigns/azure-storage/upload-multiple": {
       "post": {
         "operationId": "AzureStorageController_uploadMultipleFiles",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "required": true,
           "description": "Multiple files to upload",
@@ -1665,14 +1479,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -1718,14 +1524,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -1768,14 +1566,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -1800,14 +1590,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -1878,14 +1660,6 @@
               "example": false,
               "type": "boolean"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -1920,14 +1694,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -2017,14 +1783,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -2058,14 +1816,6 @@
             "description": "Company ID",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -2105,14 +1855,6 @@
             "description": "Company ID",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -2163,14 +1905,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -2195,14 +1929,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -2241,14 +1967,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -2307,14 +2025,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -2349,14 +2059,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -2388,14 +2090,6 @@
             "description": "Company list ID",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -2439,14 +2133,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -2480,14 +2166,6 @@
             "description": "Company list ID",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -2547,14 +2225,6 @@
             "schema": {
               "type": "number"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -2587,14 +2257,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -2619,14 +2281,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -2653,14 +2307,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -2685,14 +2331,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -2719,14 +2357,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -2752,14 +2382,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -2808,14 +2430,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "requestBody": {
@@ -2862,14 +2476,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -2960,14 +2566,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -3092,14 +2690,6 @@
                 "desc"
               ]
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -3189,14 +2779,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -3278,14 +2860,6 @@
               "example": "goal_001",
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -3332,14 +2906,6 @@
             "schema": {
               "example": "goal_001",
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -3405,14 +2971,6 @@
               "example": "goal_001",
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -3436,16 +2994,7 @@
       "get": {
         "description": "Retrieve field definitions for creating events with types, validations, and placeholders",
         "operationId": "EventsController_getFormFields",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Form fields retrieved successfully",
@@ -3610,14 +3159,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -3648,14 +3189,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -3711,14 +3244,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -3760,14 +3285,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -3826,14 +3343,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -3868,14 +3377,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -3982,14 +3483,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -4021,14 +3514,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -4084,14 +3569,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -4133,14 +3610,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -4194,14 +3663,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -4239,14 +3700,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -4281,14 +3734,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -4347,14 +3792,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -4399,14 +3836,6 @@
             "description": "Gift operations authentication key",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -4456,14 +3885,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "requestBody": {
@@ -4503,14 +3924,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -4556,14 +3969,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -4606,14 +4011,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -4641,14 +4038,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -4704,14 +4093,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -4746,14 +4127,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -4844,14 +4217,6 @@
                 "archived"
               ]
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -4892,14 +4257,6 @@
             "description": "Email Template ID",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -4942,14 +4299,6 @@
             "description": "Email Template ID",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -4996,14 +4345,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -5042,14 +4383,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -5182,14 +4515,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -5212,16 +4537,7 @@
       "post": {
         "description": "Create or update campaign with different statuses (draft, live, completed). For draft status, campaignData is stored as-is without validation.",
         "operationId": "CampaignsController_createOrUpdateCampaign",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "201": {
             "description": "Campaign created/updated successfully",
@@ -5265,14 +4581,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -5319,14 +4627,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -5464,14 +4764,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -5559,14 +4851,6 @@
               "example": false,
               "type": "boolean"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -5623,14 +4907,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -5677,14 +4953,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -5717,14 +4985,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -5768,14 +5028,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -5833,14 +5085,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -5871,16 +5115,7 @@
       "post": {
         "description": "Calculate budget for campaign including highest priced gift, shipping ($5/recipient), handling ($2/recipient), and check wallet balance",
         "operationId": "CampaignsController_calculateBudgetSummary",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
@@ -5916,16 +5151,7 @@
       "post": {
         "description": "Process gift claim submission and update claim page and recipient data",
         "operationId": "CampaignsController_submitGiftClaim",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
@@ -5964,16 +5190,7 @@
       "post": {
         "description": "Process gift feedback submission and update recipient data and timeline",
         "operationId": "CampaignsController_submitGiftFeedback",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
@@ -6031,14 +5248,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "requestBody": {
@@ -6088,14 +5297,6 @@
             "schema": {
               "example": "camp-abcd1234",
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -6194,14 +5395,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -6237,14 +5430,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -6301,14 +5486,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -6369,14 +5546,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "requestBody": {
@@ -6436,14 +5605,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "requestBody": {
@@ -6501,14 +5662,6 @@
             "description": "auth key",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -6588,14 +5741,6 @@
             "schema": {
               "type": "number"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -6640,14 +5785,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -6682,14 +5819,6 @@
             "description": "auth key",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -6726,14 +5855,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -6794,14 +5915,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -6842,16 +5955,7 @@
       "post": {
         "description": "Create a new claim page configuration",
         "operationId": "ClaimPagesController_create",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
@@ -6895,14 +5999,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -6930,16 +6026,7 @@
       "post": {
         "description": "Create a new landing page configuration",
         "operationId": "LandingPagesController_create",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
@@ -6982,14 +6069,6 @@
             "in": "path",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -7141,14 +6220,6 @@
                 "desc"
               ]
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -7226,14 +6297,6 @@
                 "delivered",
                 "acknowledged"
               ]
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -7313,14 +6376,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "requestBody": {
@@ -7382,16 +6437,7 @@
       "post": {
         "description": "Mark a recipient as delivered with optional delivery address and timeline update",
         "operationId": "RecipientsController_markRecipientDelivered",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
@@ -7601,14 +6647,6 @@
                 "desc"
               ]
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -7640,14 +6678,6 @@
             "in": "header",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -7692,14 +6722,6 @@
             "schema": {
               "example": "org_123",
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -7776,14 +6798,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "requestBody": {
@@ -7851,14 +6865,6 @@
             "schema": {
               "example": "recipient_123",
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -7934,14 +6940,6 @@
             "schema": {
               "example": "recipient_123",
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -8019,16 +7017,7 @@
       "post": {
         "description": "Upload a CSV file with tracking information to bulk update recipients to in-transit status with tracking details",
         "operationId": "RecipientsController_bulkTrackingUpload",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "required": true,
           "description": "Form data with CSV file and campaign ID",
@@ -8127,16 +7116,7 @@
     "/api/campaigns/recipient-timeline": {
       "post": {
         "operationId": "RecipientTimelineController_addTimelineEntry",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
@@ -8168,14 +7148,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -8199,14 +7171,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -8229,14 +7193,6 @@
             "in": "path",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -8262,14 +7218,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -8369,14 +7317,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -8485,14 +7425,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -8526,14 +7458,6 @@
             "schema": {
               "example": "1234567890",
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -8570,14 +7494,6 @@
             "description": "Use mock data for testing",
             "schema": {
               "type": "boolean"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -8622,16 +7538,7 @@
       "post": {
         "description": "Check the status of multiple video generation jobs",
         "operationId": "VideoGenerationController_checkStatus",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
@@ -8673,14 +7580,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -8710,14 +7609,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -8743,14 +7634,6 @@
             "description": "Filter by organization ID",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -8778,14 +7661,6 @@
             "schema": {
               "type": "number"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -8811,14 +7686,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -8927,14 +7794,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -8977,14 +7836,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -9030,14 +7881,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "requestBody": {
@@ -9080,16 +7923,7 @@
     "/api/campaigns/delight-discover/{path}": {
       "get": {
         "operationId": "LushaController_proxyToLusha_get",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": ""
@@ -9102,16 +7936,7 @@
       },
       "post": {
         "operationId": "LushaController_proxyToLusha_post",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": ""
@@ -9124,16 +7949,7 @@
       },
       "put": {
         "operationId": "LushaController_proxyToLusha_put",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": ""
@@ -9146,16 +7962,7 @@
       },
       "delete": {
         "operationId": "LushaController_proxyToLusha_delete",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": ""
@@ -9168,16 +7975,7 @@
       },
       "patch": {
         "operationId": "LushaController_proxyToLusha_patch",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": ""
@@ -9190,16 +7988,7 @@
       },
       "options": {
         "operationId": "LushaController_proxyToLusha_options",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": ""
@@ -9212,16 +8001,7 @@
       },
       "head": {
         "operationId": "LushaController_proxyToLusha_head",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": ""
@@ -9245,14 +8025,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -9402,14 +8174,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -9452,14 +8216,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -9504,14 +8260,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -9570,14 +8318,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -9616,14 +8356,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -9670,14 +8402,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -9775,14 +8499,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -9809,16 +8525,7 @@
     "/api/campaigns/agent/{path}": {
       "get": {
         "operationId": "CampaignAgentController_proxyToUrlScraperService_get",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": ""
@@ -9831,16 +8538,7 @@
       },
       "post": {
         "operationId": "CampaignAgentController_proxyToUrlScraperService_post",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": ""
@@ -9853,16 +8551,7 @@
       },
       "put": {
         "operationId": "CampaignAgentController_proxyToUrlScraperService_put",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": ""
@@ -9875,16 +8564,7 @@
       },
       "delete": {
         "operationId": "CampaignAgentController_proxyToUrlScraperService_delete",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": ""
@@ -9897,16 +8577,7 @@
       },
       "patch": {
         "operationId": "CampaignAgentController_proxyToUrlScraperService_patch",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": ""
@@ -9919,16 +8590,7 @@
       },
       "options": {
         "operationId": "CampaignAgentController_proxyToUrlScraperService_options",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": ""
@@ -9941,16 +8603,7 @@
       },
       "head": {
         "operationId": "CampaignAgentController_proxyToUrlScraperService_head",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": ""
@@ -9974,14 +8627,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -10134,14 +8779,6 @@
               "example": true,
               "type": "boolean"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -10243,14 +8880,6 @@
                 "desc"
               ]
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -10343,14 +8972,6 @@
               "example": "audience_clx7k2m0p0001j5k8c5z9w8h4",
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "requestBody": {
@@ -10429,14 +9050,6 @@
             "schema": {
               "example": "audience_clx7k2m0p0001j5k8c5z9w8h4",
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -10541,14 +9154,6 @@
               "example": "audience_clx7k2m0p0001j5k8c5z9w8h4",
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "requestBody": {
@@ -10601,14 +9206,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -10664,16 +9261,7 @@
       "post": {
         "description": "Enriches a contact with work email address. Requires either (firstname + lastname + company/domain) OR linkedin_url. Returns immediately with job status. Independent API - no orgId required.",
         "operationId": "EnrichmentController_enrichContactWorkEmail",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
@@ -10742,16 +9330,7 @@
       "post": {
         "description": "Receives webhook callbacks from Fullenrich API when email enrichment is completed for a recipient",
         "operationId": "EnrichmentController_processEmailEnrichmentWebhook",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Webhook processed successfully"
@@ -10774,14 +9353,6 @@
             "in": "path",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
             }
           }
         ],
@@ -10823,14 +9394,6 @@
               "example": "claim-abc123",
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -10858,16 +9421,7 @@
       "post": {
         "description": "Update essential fields of claim pages or landing pages including headers, content, backgrounds, and buttons",
         "operationId": "PageEditorController_updatePage",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
@@ -10922,14 +9476,6 @@
               ],
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
           }
         ],
         "responses": {
@@ -10950,16 +9496,7 @@
       "post": {
         "description": "Update essential fields of all claim pages or landing pages in a campaign including headers, content, backgrounds, and buttons",
         "operationId": "PageEditorController_updateCampaignPages",
-        "parameters": [
-          {
-            "in": "header",
-            "required": false,
-            "name": "x-custom-lang",
-            "schema": {
-              "example": "en"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
