@@ -62,7 +62,7 @@ async function fetchAllContactLists() {
 
   while (hasMore) {
     const response = await fetch(
-      `https://new-campiagn-service-delightloop.patchup.health/api/campaigns/contact-lists?page=${page}&limit=100`,
+      `https://apiv1.delightloop.ai/api/campaigns/contact-lists?page=${page}&limit=100`,
       {
         headers: {
           'x-api-key': 'your-api-key'

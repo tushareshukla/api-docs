@@ -9538,7 +9538,7 @@
   "tags": [],
   "servers": [
     {
-      "url": "https://new-campiagn-service-delightloop.patchup.health",
+      "url": "https://apiv1.delightloop.ai",
       "description": "Production server"
     }
   ],
