@@ -9,7 +9,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -68,7 +68,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -248,7 +248,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -322,7 +322,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -375,7 +375,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -588,7 +588,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -645,7 +645,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -715,7 +715,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -748,7 +748,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -781,7 +781,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -833,7 +833,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -909,7 +909,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -963,7 +963,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -1050,7 +1050,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -1102,7 +1102,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -1169,7 +1169,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -1241,7 +1241,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -1308,7 +1308,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -1357,7 +1357,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -1411,7 +1411,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -1468,7 +1468,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -1763,7 +1763,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -1796,7 +1796,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -1830,7 +1830,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -1916,7 +1916,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -1964,7 +1964,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -2045,7 +2045,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -2092,7 +2092,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -2149,7 +2149,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -2191,7 +2191,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -2237,7 +2237,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -2278,7 +2278,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -2335,7 +2335,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -2375,7 +2375,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -2425,7 +2425,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -2467,7 +2467,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -2517,7 +2517,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -2573,7 +2573,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -2615,7 +2615,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -2648,7 +2648,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -2681,7 +2681,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -2714,7 +2714,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -2748,7 +2748,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -2803,7 +2803,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -2858,7 +2858,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -2956,7 +2956,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -3015,7 +3015,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -3184,7 +3184,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -3263,7 +3263,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -3318,7 +3318,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -3390,7 +3390,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -3605,7 +3605,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -3644,7 +3644,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -3706,7 +3706,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -3756,7 +3756,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -3821,7 +3821,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -3864,7 +3864,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -3977,7 +3977,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -4017,7 +4017,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -4079,7 +4079,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -4129,7 +4129,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -4189,7 +4189,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -4234,7 +4234,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -4277,7 +4277,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -4451,7 +4451,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -4499,7 +4499,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -4542,7 +4542,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -4592,7 +4592,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -4637,7 +4637,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -4690,7 +4690,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -4742,7 +4742,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -4793,7 +4793,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -4879,7 +4879,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -4929,7 +4929,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -4982,7 +4982,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -5038,7 +5038,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -5177,7 +5177,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -5261,7 +5261,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -5315,7 +5315,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -5459,7 +5459,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -5618,7 +5618,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -5672,7 +5672,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -5713,7 +5713,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -5764,7 +5764,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -5828,7 +5828,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -6026,7 +6026,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -6189,7 +6189,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -6233,7 +6233,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -6297,7 +6297,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -6364,7 +6364,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -6431,7 +6431,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -6498,7 +6498,7 @@
             "name": "x-api-key",
             "required": true,
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "schema": {
               "type": "string"
             }
@@ -6532,7 +6532,7 @@
             "name": "x-api-key",
             "required": true,
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "schema": {
               "type": "string"
             }
@@ -6618,7 +6618,7 @@
             "name": "x-api-key",
             "required": true,
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "schema": {
               "type": "string"
             }
@@ -6679,7 +6679,7 @@
             "name": "x-api-key",
             "required": true,
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "schema": {
               "type": "string"
             }
@@ -6722,7 +6722,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -6789,7 +6789,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -8258,7 +8258,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -8365,7 +8365,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -8807,7 +8807,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -8922,7 +8922,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -8973,7 +8973,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -9025,7 +9025,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -9241,7 +9241,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -9397,7 +9397,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -9448,7 +9448,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -9500,7 +9500,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -9565,7 +9565,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -9612,7 +9612,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -9666,7 +9666,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -9770,7 +9770,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -9970,7 +9970,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -10029,7 +10029,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -10166,7 +10166,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -10328,7 +10328,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -10415,7 +10415,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -10526,7 +10526,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -10597,7 +10597,7 @@
           {
             "name": "x-api-key",
             "in": "header",
-            "description": "Organization ID",
+            "description": "auth key",
             "required": true,
             "schema": {
               "type": "string"
@@ -14402,7 +14402,7 @@
         "properties": {
           "orgId": {
             "type": "string",
-            "description": "Organization ID",
+            "description": "auth key",
             "example": "org_123"
           },
           "domain": {
@@ -14494,7 +14494,7 @@
           },
           "organizationId": {
             "type": "string",
-            "description": "Organization ID",
+            "description": "auth key",
             "example": "org_123"
           },
           "organization": {
@@ -15612,7 +15612,7 @@
           },
           "organizationId": {
             "type": "string",
-            "description": "Organization ID",
+            "description": "auth key",
             "example": "org-123"
           },
           "selectedContactListIds": {
@@ -17561,7 +17561,7 @@
           },
           "organizationId": {
             "type": "string",
-            "description": "Organization ID",
+            "description": "auth key",
             "example": "org_123"
           },
           "contactDetails": {
@@ -17729,7 +17729,7 @@
         "properties": {
           "orgId": {
             "type": "string",
-            "description": "Organization ID",
+            "description": "auth key",
             "example": "org_123"
           },
           "displayName": {
@@ -18103,7 +18103,7 @@
           },
           "organizationId": {
             "type": "string",
-            "description": "Organization ID",
+            "description": "auth key",
             "example": "org_abc123"
           },
           "userId": {
@@ -18666,7 +18666,7 @@
           },
           "organizationId": {
             "type": "string",
-            "description": "Organization ID",
+            "description": "auth key",
             "example": "org-001"
           },
           "templateName": {
