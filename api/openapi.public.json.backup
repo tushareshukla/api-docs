@@ -1349,6 +1349,211 @@
         ]
       }
     },
+    "/api/campaigns/azure-storage/upload": {
+      "post": {
+        "operationId": "AzureStorageController_uploadFile",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "File to upload with optional file key",
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "File (Images: JPEG, PNG, GIF, WebP, SVG; Video: MP4, MOV, AVI, WMV; Audio: MP3, WAV, FLAC, AAC; Documents: CSV, PDF)"
+                  },
+                  "fileName": {
+                    "type": "string",
+                    "description": "Optional custom filename for the uploaded file"
+                  }
+                },
+                "$ref": "#/components/schemas/"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "description": "Public URL of the uploaded file"
+                    },
+                    "fileName": {
+                      "type": "string",
+                      "description": "Generated filename"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Upload a file to Cloudflare R2 Storage",
+        "tags": [
+          "Azure Storage"
+        ]
+      }
+    },
+    "/api/campaigns/azure-storage/upload-multiple": {
+      "post": {
+        "operationId": "AzureStorageController_uploadMultipleFiles",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "Multiple files to upload",
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "files": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    },
+                    "description": "Multiple files (Images: JPEG, PNG, GIF, WebP, SVG; Video: MP4, MOV, AVI, WMV; Audio: MP3, WAV, FLAC, AAC; Documents: CSV, PDF)"
+                  },
+                  "fileNames": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Optional array of custom filenames (must match files array length if provided)"
+                  }
+                },
+                "$ref": "#/components/schemas/"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Files uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string",
+                        "description": "Public URL of the uploaded file"
+                      },
+                      "fileName": {
+                        "type": "string",
+                        "description": "Generated filename"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Upload multiple files to Cloudflare R2 Storage",
+        "tags": [
+          "Azure Storage"
+        ]
+      }
+    },
+    "/api/campaigns/azure-storage/url/{fileName}": {
+      "get": {
+        "operationId": "AzureStorageController_getImageUrl",
+        "parameters": [
+          {
+            "name": "fileName",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Image URL retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "description": "Public URL of the image"
+                    },
+                    "fileName": {
+                      "type": "string",
+                      "description": "Filename"
+                    },
+                    "exists": {
+                      "type": "boolean",
+                      "description": "Whether the image exists"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get the URL of an uploaded image",
+        "tags": [
+          "Azure Storage"
+        ]
+      }
+    },
+    "/api/campaigns/azure-storage/{fileName}": {
+      "delete": {
+        "operationId": "AzureStorageController_deleteImage",
+        "parameters": [
+          {
+            "name": "fileName",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Image deletion result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "deleted": {
+                      "type": "boolean",
+                      "description": "Whether the image was deleted"
+                    },
+                    "fileName": {
+                      "type": "string",
+                      "description": "Filename that was deleted"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Delete an image from Cloudflare R2 Storage",
+        "tags": [
+          "Azure Storage"
+        ]
+      }
+    },
     "/api/campaigns/companies/schema": {
       "get": {
         "operationId": "CompaniesController_getCompanySchema",
@@ -2062,6 +2267,290 @@
         "summary": "Remove companies from a list",
         "tags": [
           "Companies"
+        ]
+      }
+    },
+    "/api/campaigns/external/health": {
+      "get": {
+        "operationId": "ExternalMicroserviceController_healthCheck",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "auth key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Service is healthy"
+          }
+        },
+        "summary": "Health check for external microservice",
+        "tags": [
+          "External Microservice"
+        ]
+      }
+    },
+    "/api/campaigns/external/api-call": {
+      "post": {
+        "operationId": "ExternalMicroserviceController_makeApiCall",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "auth key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "API call successful"
+          }
+        },
+        "summary": "Make a generic API call to external service",
+        "tags": [
+          "External Microservice"
+        ]
+      }
+    },
+    "/api/campaigns/external/authenticated-call": {
+      "post": {
+        "operationId": "ExternalMicroserviceController_makeAuthenticatedCall",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "auth key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Authenticated API call successful"
+          }
+        },
+        "summary": "Make authenticated API call to external service",
+        "tags": [
+          "External Microservice"
+        ]
+      }
+    },
+    "/api/campaigns/external/third-party/webhook": {
+      "post": {
+        "operationId": "ExternalMicroserviceController_handleWebhook",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "auth key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Webhook processed successfully"
+          }
+        },
+        "summary": "Handle incoming webhooks from third-party services",
+        "tags": [
+          "External Microservice"
+        ]
+      }
+    },
+    "/api/campaigns/external/email/send-bulk": {
+      "post": {
+        "description": "Send bulk personalized emails to multiple recipients using the notification service. The sender email will be automatically generated based on the organization name.",
+        "operationId": "ExternalMicroserviceController_sendBulkEmails",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "auth key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "Bulk email payload with personalized content for each recipient",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BulkPersonalizedEmailDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Bulk emails processed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BulkEmailResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid email data"
+          }
+        },
+        "summary": "Send bulk personalized emails",
+        "tags": [
+          "External Microservice"
+        ]
+      }
+    },
+    "/api/campaigns/external/email/send-single": {
+      "post": {
+        "description": "Send a single personalized email to a recipient using the notification service. The sender email will be automatically generated based on the organization name.",
+        "operationId": "ExternalMicroserviceController_sendSingleEmail",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "auth key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "Single email payload with personalized content",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PersonalizedEmailDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Email sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BulkEmailResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid email data"
+          }
+        },
+        "summary": "Send a single personalized email",
+        "tags": [
+          "External Microservice"
+        ]
+      }
+    },
+    "/api/campaigns/external/users/organization": {
+      "get": {
+        "description": "Retrieve all users (userId, email, name) belonging to the current organization",
+        "operationId": "ExternalMicroserviceController_getUsersByOrganization",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "auth key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Users retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "users": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "userId": {
+                            "type": "string",
+                            "example": "user_123"
+                          },
+                          "firstName": {
+                            "type": "string",
+                            "example": "John"
+                          },
+                          "lastName": {
+                            "type": "string",
+                            "example": "Doe"
+                          },
+                          "email": {
+                            "type": "string",
+                            "example": "john.doe@example.com"
+                          },
+                          "verified": {
+                            "type": "boolean",
+                            "example": true
+                          },
+                          "status": {
+                            "type": "string",
+                            "example": "active"
+                          },
+                          "ssoProvider": {
+                            "type": "string",
+                            "example": "google"
+                          },
+                          "picture": {
+                            "type": "string",
+                            "example": "https://example.com/avatar.jpg"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "example": "2024-01-01T00:00:00.000Z"
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "example": "2024-01-01T00:00:00.000Z"
+                          }
+                        }
+                      }
+                    },
+                    "total": {
+                      "type": "number",
+                      "example": 25
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization not found"
+          }
+        },
+        "summary": "Get users by organization ID",
+        "tags": [
+          "External Microservice"
         ]
       }
     },
@@ -3624,6 +4113,251 @@
         "summary": "Remove gifts from a collection",
         "tags": [
           "Gift Collections"
+        ]
+      }
+    },
+    "/api/campaigns/email-templates": {
+      "post": {
+        "operationId": "EmailTemplatesController_create",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "auth key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEmailTemplateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Email template created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailTemplateResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid placeholder format or validation errors"
+          }
+        },
+        "summary": "Create a new email template with automatic placeholder extraction",
+        "tags": [
+          "Email Templates"
+        ]
+      },
+      "get": {
+        "operationId": "EmailTemplatesController_findAll",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "auth key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "description": "Page number",
+            "schema": {
+              "minimum": 1,
+              "default": 1,
+              "type": "number"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "Number of items per page",
+            "schema": {
+              "minimum": 1,
+              "maximum": 100,
+              "default": 12,
+              "type": "number"
+            }
+          },
+          {
+            "name": "search",
+            "required": false,
+            "in": "query",
+            "description": "Search by template name or subject",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "required": false,
+            "in": "query",
+            "description": "Filter by status",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "draft",
+                "published",
+                "archived"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Email templates retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailTemplatesResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get all email templates with pagination and filtering",
+        "tags": [
+          "Email Templates"
+        ]
+      }
+    },
+    "/api/campaigns/email-templates/{templateId}": {
+      "get": {
+        "operationId": "EmailTemplatesController_findOne",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "auth key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "templateId",
+            "required": true,
+            "in": "path",
+            "description": "Email Template ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Email template retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailTemplateResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Email template not found"
+          }
+        },
+        "summary": "Get an email template by ID",
+        "tags": [
+          "Email Templates"
+        ]
+      },
+      "put": {
+        "operationId": "EmailTemplatesController_update",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "auth key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "templateId",
+            "required": true,
+            "in": "path",
+            "description": "Email Template ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Email template updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailTemplateResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid placeholder format or validation errors"
+          },
+          "404": {
+            "description": "Email template not found"
+          }
+        },
+        "summary": "Update an email template",
+        "tags": [
+          "Email Templates"
+        ]
+      },
+      "delete": {
+        "operationId": "EmailTemplatesController_delete",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "auth key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "templateId",
+            "required": true,
+            "in": "path",
+            "description": "Email Template ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Email template deleted successfully"
+          },
+          "404": {
+            "description": "Email template not found"
+          }
+        },
+        "summary": "Delete an email template",
+        "tags": [
+          "Email Templates"
         ]
       }
     },
@@ -5217,6 +5951,148 @@
         ]
       }
     },
+    "/api/campaigns/claim-pages": {
+      "post": {
+        "description": "Create a new claim page configuration",
+        "operationId": "ClaimPagesController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateClaimPageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Claim page created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClaimPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input data"
+          }
+        },
+        "summary": "Create a new claim page",
+        "tags": [
+          "Claim Pages"
+        ]
+      }
+    },
+    "/api/campaigns/claim-pages/{claimPageId}": {
+      "get": {
+        "description": "Retrieve claim page configuration by its ID",
+        "operationId": "ClaimPagesController_findById",
+        "parameters": [
+          {
+            "name": "claimPageId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Claim page retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClaimPage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Claim page not found"
+          }
+        },
+        "summary": "Get claim page by ID",
+        "tags": [
+          "Claim Pages"
+        ]
+      }
+    },
+    "/api/campaigns/landing-pages": {
+      "post": {
+        "description": "Create a new landing page configuration",
+        "operationId": "LandingPagesController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateLandingPageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Landing page created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LandingPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input data"
+          }
+        },
+        "summary": "Create a new landing page",
+        "tags": [
+          "Landing Pages"
+        ]
+      }
+    },
+    "/api/campaigns/landing-pages/{landingPageId}": {
+      "get": {
+        "description": "Retrieve landing page configuration by its ID",
+        "operationId": "LandingPagesController_findById",
+        "parameters": [
+          {
+            "name": "landingPageId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Landing page retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LandingPage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Landing page not found"
+          }
+        },
+        "summary": "Get landing page by ID",
+        "tags": [
+          "Landing Pages"
+        ]
+      }
+    },
     "/api/campaigns/recipients/express-send": {
       "get": {
         "description": "Retrieve express-send recipients for the organization with advanced filtering, sorting, and pagination capabilities.",
@@ -6237,6 +7113,567 @@
         ]
       }
     },
+    "/api/campaigns/recipient-timeline": {
+      "post": {
+        "operationId": "RecipientTimelineController_addTimelineEntry",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateRecipientTimelineDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "RecipientTimeline"
+        ]
+      }
+    },
+    "/api/campaigns/recipient-timeline/recipient/{recipientId}": {
+      "get": {
+        "operationId": "RecipientTimelineController_findByRecipientId",
+        "parameters": [
+          {
+            "name": "recipientId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "RecipientTimeline"
+        ]
+      }
+    },
+    "/api/campaigns/recipient-timeline/campaign/{campaignId}": {
+      "get": {
+        "operationId": "RecipientTimelineController_findByCampaignId",
+        "parameters": [
+          {
+            "name": "campaignId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "RecipientTimeline"
+        ]
+      }
+    },
+    "/api/campaigns/recipient-timeline/organization/{organizationId}": {
+      "get": {
+        "operationId": "RecipientTimelineController_findByOrganizationId",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "RecipientTimeline"
+        ]
+      }
+    },
+    "/api/campaigns/assignments/assign": {
+      "post": {
+        "description": "Assign recipients to specific users using an array-based structure. Campaign ID is provided in the request body. Each assignment item contains a recipient ID and an array of user IDs to assign to that recipient. Only organization admins and campaign creators can perform this action.",
+        "operationId": "RecipientAssignmentsController_assignRecipients",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "auth key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAssignmentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Recipients assigned successfully with precise mapping",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateAssignmentResponseDto"
+                },
+                "example": {
+                  "success": true,
+                  "message": "Recipients assigned successfully",
+                  "assignmentsCreated": 3,
+                  "assignmentsUpdated": 0,
+                  "totalProcessed": 3,
+                  "assignments": [
+                    {
+                      "assignmentId": "assignment_123",
+                      "recipientId": "recipient_voy8zZq_mj4P7wSLp1-XJ",
+                      "assignedUserId": "user-52ca8d67",
+                      "campaignId": "camp-1o33Pchkpy5SBKLe1W_bD",
+                      "organizationId": "org-b1f33845",
+                      "status": "assigned"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request data, insufficient permissions, or recipients not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Some recipients not found or do not belong to this organization",
+                  "error": "Bad Request",
+                  "statusCode": 400
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing JWT token",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Unauthorized",
+                  "error": "Unauthorized",
+                  "statusCode": 401
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Campaign not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Campaign camp-1o33Pchkpy5SBKLe1W_bD not found",
+                  "error": "Not Found",
+                  "statusCode": 404
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {}
+        ],
+        "summary": "Assign recipients to organization users with array-based mapping",
+        "tags": [
+          "recipient-assignments"
+        ]
+      }
+    },
+    "/api/campaigns/assignments/unassign": {
+      "post": {
+        "description": "Remove recipient assignments from users using array-based structure. Each unassignment item contains a recipient ID and an array of user IDs to unassign from that recipient. Validates organizationId, campaignId, recipientId, and userId before deletion. Only organization admins and campaign creators can perform this action.",
+        "operationId": "RecipientAssignmentsController_unassignRecipients",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "auth key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UnassignAssignmentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Assignment(s) unassigned successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnassignAssignmentResponseDto"
+                },
+                "example": {
+                  "success": true,
+                  "message": "Assignment(s) unassigned successfully",
+                  "assignmentsDeleted": 2
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request data or recipients not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Invalid recipient IDs: recipient_123",
+                  "error": "Bad Request",
+                  "statusCode": 400
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing JWT token",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Unauthorized",
+                  "error": "Unauthorized",
+                  "statusCode": 401
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Assignment(s) not found - all-or-nothing behavior",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Assignment(s) not found: recipient_123→user_456",
+                  "error": "Not Found",
+                  "statusCode": 404
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {}
+        ],
+        "summary": "Unassign recipients from organization users",
+        "tags": [
+          "recipient-assignments"
+        ]
+      }
+    },
+    "/api/campaigns/dynamic-video-templates": {
+      "get": {
+        "description": "Retrieve all available dynamic video templates with optional pagination and search",
+        "operationId": "DynamicVideoTemplatesController_getTemplates",
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "description": "Page number (starts from 1)",
+            "schema": {
+              "example": 1,
+              "type": "number"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "Number of items per page",
+            "schema": {
+              "example": 10,
+              "type": "number"
+            }
+          },
+          {
+            "name": "search",
+            "required": false,
+            "in": "query",
+            "description": "Search templates by name or ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Templates retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTemplatesResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get all dynamic video templates",
+        "tags": [
+          "dynamic-video-templates"
+        ]
+      }
+    },
+    "/api/campaigns/dynamic-video-templates/{templateId}": {
+      "get": {
+        "description": "Retrieve a specific dynamic video template by its ID",
+        "operationId": "DynamicVideoTemplatesController_getTemplateById",
+        "parameters": [
+          {
+            "name": "templateId",
+            "required": true,
+            "in": "path",
+            "description": "Template ID",
+            "schema": {
+              "example": "1234567890",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Template retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTemplateResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Template not found"
+          }
+        },
+        "summary": "Get dynamic video template by ID",
+        "tags": [
+          "dynamic-video-templates"
+        ]
+      }
+    },
+    "/api/campaigns/video-generation/generate": {
+      "post": {
+        "description": "Generate a personalized video using Creatomate templates",
+        "operationId": "VideoGenerationController_generateVideo",
+        "parameters": [
+          {
+            "name": "USE_MOCK",
+            "required": false,
+            "in": "query",
+            "description": "Use mock data for testing",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VideoGenerationRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Video generation job created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VideoGenerationResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request payload"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          },
+          "502": {
+            "description": "Creatomate API error"
+          }
+        },
+        "summary": "Generate a dynamic video",
+        "tags": [
+          "video-generation"
+        ]
+      }
+    },
+    "/api/campaigns/video-generation/check_status": {
+      "post": {
+        "description": "Check the status of multiple video generation jobs",
+        "operationId": "VideoGenerationController_checkStatus",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VideoStatusRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Status check completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VideoStatusResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Check video generation status",
+        "tags": [
+          "video-generation"
+        ]
+      }
+    },
+    "/api/campaigns/video-generation/job/{jobId}": {
+      "get": {
+        "description": "Get details of a specific video generation job",
+        "operationId": "VideoGenerationController_getJobDetails",
+        "parameters": [
+          {
+            "name": "jobId",
+            "required": true,
+            "in": "path",
+            "description": "Video job ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Job details retrieved successfully"
+          },
+          "404": {
+            "description": "Job not found"
+          }
+        },
+        "summary": "Get job details",
+        "tags": [
+          "video-generation"
+        ]
+      }
+    },
+    "/api/campaigns/video-generation/recipient/{recipientId}": {
+      "get": {
+        "description": "Get all video generation jobs for a recipient",
+        "operationId": "VideoGenerationController_getJobsByRecipient",
+        "parameters": [
+          {
+            "name": "recipientId",
+            "required": true,
+            "in": "path",
+            "description": "Recipient ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Jobs retrieved successfully"
+          }
+        },
+        "summary": "Get jobs by recipient",
+        "tags": [
+          "video-generation"
+        ]
+      }
+    },
+    "/api/campaigns/video-generation/stats": {
+      "get": {
+        "description": "Get aggregated statistics for video generation jobs",
+        "operationId": "VideoGenerationController_getStats",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": false,
+            "in": "query",
+            "description": "Filter by organization ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Statistics retrieved successfully"
+          }
+        },
+        "summary": "Get video generation statistics",
+        "tags": [
+          "video-generation"
+        ]
+      }
+    },
+    "/api/campaigns/video-generation/cleanup": {
+      "post": {
+        "description": "Delete old completed/failed jobs from database",
+        "operationId": "VideoGenerationController_cleanupJobs",
+        "parameters": [
+          {
+            "name": "daysOld",
+            "required": false,
+            "in": "query",
+            "description": "Delete jobs older than this many days",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cleanup completed successfully"
+          }
+        },
+        "summary": "Cleanup old jobs",
+        "tags": [
+          "video-generation"
+        ]
+      }
+    },
     "/api/campaigns/templates": {
       "post": {
         "description": "Create a new campaign template with the provided template data",
@@ -6992,6 +8429,99 @@
         ]
       }
     },
+    "/api/campaigns/agent/{path}": {
+      "get": {
+        "operationId": "CampaignAgentController_proxyToUrlScraperService_get",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Proxy requests to URL Scraper Service",
+        "tags": [
+          "campaign-agent"
+        ]
+      },
+      "post": {
+        "operationId": "CampaignAgentController_proxyToUrlScraperService_post",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Proxy requests to URL Scraper Service",
+        "tags": [
+          "campaign-agent"
+        ]
+      },
+      "put": {
+        "operationId": "CampaignAgentController_proxyToUrlScraperService_put",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Proxy requests to URL Scraper Service",
+        "tags": [
+          "campaign-agent"
+        ]
+      },
+      "delete": {
+        "operationId": "CampaignAgentController_proxyToUrlScraperService_delete",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Proxy requests to URL Scraper Service",
+        "tags": [
+          "campaign-agent"
+        ]
+      },
+      "patch": {
+        "operationId": "CampaignAgentController_proxyToUrlScraperService_patch",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Proxy requests to URL Scraper Service",
+        "tags": [
+          "campaign-agent"
+        ]
+      },
+      "options": {
+        "operationId": "CampaignAgentController_proxyToUrlScraperService_options",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Proxy requests to URL Scraper Service",
+        "tags": [
+          "campaign-agent"
+        ]
+      },
+      "head": {
+        "operationId": "CampaignAgentController_proxyToUrlScraperService_head",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Proxy requests to URL Scraper Service",
+        "tags": [
+          "campaign-agent"
+        ]
+      }
+    },
     "/api/campaigns/audience-lists": {
       "post": {
         "description": "Creates a new audience list within an organization with specified ICP configuration.",
@@ -7568,6 +9098,336 @@
         "summary": "Update audience list status",
         "tags": [
           "Audience Lists"
+        ]
+      }
+    },
+    "/api/campaigns/enrichment/recipients/profile-images": {
+      "post": {
+        "description": "Starts a background job to fetch profile images for all recipients in a campaign using RapidAPI. Returns immediately with job status.",
+        "operationId": "EnrichmentController_enrichRecipientsProfileImages",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "auth key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnrichRecipientsDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Enrichment job started successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Enrichment started for 108 recipients"
+                    },
+                    "campaignId": {
+                      "type": "string",
+                      "example": "camp-abcd1234"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request data"
+          },
+          "404": {
+            "description": "Campaign or recipients not found"
+          }
+        },
+        "summary": "Start profile image enrichment job for campaign recipients",
+        "tags": [
+          "enrichment"
+        ]
+      }
+    },
+    "/api/campaigns/enrichment/work-email": {
+      "post": {
+        "description": "Enriches a contact with work email address. Requires either (firstname + lastname + company/domain) OR linkedin_url. Returns immediately with job status. Independent API - no orgId required.",
+        "operationId": "EnrichmentController_enrichContactWorkEmail",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnrichEmailDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Email enrichment job started successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Email enrichment completed successfully"
+                    },
+                    "workEmail": {
+                      "type": "string",
+                      "example": "john.snow@example.com"
+                    },
+                    "emails": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "example": [
+                        "john.snow@example.com",
+                        "john.snow@gmail.com"
+                      ]
+                    },
+                    "personalEmails": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "example": [
+                        "john.snow@gmail.com"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request data - must provide either (firstname + lastname + company) OR linkedin_url"
+          }
+        },
+        "summary": "Enrich contact with work email using Fullenrich API",
+        "tags": [
+          "enrichment"
+        ]
+      }
+    },
+    "/api/campaigns/enrichment/webhook/email-enrichment": {
+      "post": {
+        "description": "Receives webhook callbacks from Fullenrich API when email enrichment is completed for a recipient",
+        "operationId": "EnrichmentController_processEmailEnrichmentWebhook",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Webhook processed successfully"
+          }
+        },
+        "summary": "Webhook endpoint for Fullenrich email enrichment callbacks",
+        "tags": [
+          "enrichment"
+        ]
+      }
+    },
+    "/api/campaigns/enrichment/jobs/{campaignId}": {
+      "delete": {
+        "description": "Removes enrichment job records for the specified campaign to allow retesting",
+        "operationId": "EnrichmentController_clearEnrichmentProgress",
+        "parameters": [
+          {
+            "name": "campaignId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "summary": "Clear enrichment job progress for debugging",
+        "tags": [
+          "enrichment"
+        ]
+      }
+    },
+    "/api/campaigns/page-editor/{pageType}/{pageId}/edit-form": {
+      "get": {
+        "description": "Retrieve current page data formatted as form fields with labels, placeholders, and validation rules for editing UI",
+        "operationId": "PageEditorController_getEditForm",
+        "parameters": [
+          {
+            "name": "pageType",
+            "required": true,
+            "in": "path",
+            "description": "Type of page to edit",
+            "schema": {
+              "enum": [
+                "claim",
+                "landing"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageId",
+            "required": true,
+            "in": "path",
+            "description": "Unique page identifier",
+            "schema": {
+              "example": "claim-abc123",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Edit form data retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EditFormResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Page not found"
+          }
+        },
+        "summary": "Get edit form for claim page or landing page",
+        "tags": [
+          "page-editor"
+        ]
+      }
+    },
+    "/api/campaigns/page-editor/update": {
+      "post": {
+        "description": "Update essential fields of claim pages or landing pages including headers, content, backgrounds, and buttons",
+        "operationId": "PageEditorController_updatePage",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Page updated successfully"
+          },
+          "400": {
+            "description": "Invalid page data"
+          },
+          "404": {
+            "description": "Page not found"
+          }
+        },
+        "summary": "Update claim page or landing page",
+        "tags": [
+          "page-editor"
+        ]
+      }
+    },
+    "/api/campaigns/page-editor/campaign/{campaignId}/{pageType}/edit-form": {
+      "get": {
+        "description": "Retrieve current campaign page data formatted as form fields with labels, placeholders, and validation rules for editing UI",
+        "operationId": "PageEditorController_getCampaignEditForm",
+        "parameters": [
+          {
+            "name": "campaignId",
+            "required": true,
+            "in": "path",
+            "description": "Campaign ID containing the pages to edit",
+            "schema": {
+              "example": "camp-j29KZs64ci0HwMJEFxAmF",
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageType",
+            "required": true,
+            "in": "path",
+            "description": "Type of pages to edit",
+            "schema": {
+              "enum": [
+                "claim",
+                "landing"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Campaign edit form data retrieved successfully"
+          },
+          "404": {
+            "description": "Campaign pages not found"
+          }
+        },
+        "summary": "Get edit form for all pages in a campaign",
+        "tags": [
+          "page-editor"
+        ]
+      }
+    },
+    "/api/campaigns/page-editor/campaign/update": {
+      "post": {
+        "description": "Update essential fields of all claim pages or landing pages in a campaign including headers, content, backgrounds, and buttons",
+        "operationId": "PageEditorController_updateCampaignPages",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CampaignUpdatePageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Campaign pages updated successfully"
+          },
+          "400": {
+            "description": "Invalid page data"
+          },
+          "404": {
+            "description": "Campaign pages not found"
+          }
+        },
+        "summary": "Update all pages in a campaign",
+        "tags": [
+          "page-editor"
         ]
       }
     }
@@ -11558,15 +13418,15 @@
           },
           "giftCost": {
             "type": "number",
-            "description": "Gift cost (highest priced gift \u00d7 recipients)"
+            "description": "Gift cost (highest priced gift × recipients)"
           },
           "shippingCost": {
             "type": "number",
-            "description": "Estimated shipping cost ($5 \u00d7 recipients)"
+            "description": "Estimated shipping cost ($5 × recipients)"
           },
           "handlingCharge": {
             "type": "number",
-            "description": "Handling charge ($2 \u00d7 recipients)"
+            "description": "Handling charge ($2 × recipients)"
           },
           "subtotal": {
             "type": "number",
