@@ -2849,7 +2849,7 @@
           "profileImage": {
             "type": "string",
             "description": "Contact profile image URL",
-            "example": "https://example.com/profile/johndoe.jpg"
+            "example": "https://cdn.delightloop.ai/profiles/user-profile-123.jpg"
           },
           "notes": {
             "type": "string",
@@ -4305,7 +4305,7 @@
           "logo": {
             "type": "string",
             "description": "Logo URL for the motion",
-            "example": "https://example.com/logo.png"
+            "example": "https://cdn.delightloop.ai/assets/company-logo-123.png"
           },
           "logoColor": {
             "type": "string",
@@ -4346,7 +4346,7 @@
           "logo": {
             "type": "string",
             "description": "Logo URL for the goal",
-            "example": "https://example.com/goal-logo.png"
+            "example": "https://cdn.delightloop.ai/assets/goal-logo-456.png"
           },
           "logoColor": {
             "type": "string",
@@ -4435,7 +4435,7 @@
           "logo": {
             "type": "string",
             "description": "Logo URL for the motion",
-            "example": "https://example.com/logo.png"
+            "example": "https://cdn.delightloop.ai/assets/company-logo-123.png"
           },
           "logoColor": {
             "type": "string",
@@ -4477,7 +4477,7 @@
           "logo": {
             "type": "string",
             "description": "Logo URL for the goal",
-            "example": "https://example.com/goal-logo.png"
+            "example": "https://cdn.delightloop.ai/assets/goal-logo-456.png"
           },
           "logoColor": {
             "type": "string",
@@ -6483,7 +6483,7 @@
           "image": {
             "type": "string",
             "description": "Gift image URL",
-            "example": "https://example.com/gift-image.jpg"
+            "example": "https://cdn.delightloop.ai/gifts/gift-preview-123.jpg"
           },
           "price": {
             "type": "number",
@@ -6676,7 +6676,7 @@
           "url": {
             "type": "string",
             "description": "URL for video or audio message",
-            "example": "https://example.com/message.mp4"
+            "example": "https://cdn.delightloop.ai/media/personal-message-456.mp4"
           },
           "text": {
             "type": "string",
@@ -6884,7 +6884,7 @@
           "profileImage": {
             "type": "string",
             "description": "Contact profile image URL",
-            "example": "https://example.com/profile/johndoe.jpg"
+            "example": "https://cdn.delightloop.ai/profiles/user-profile-123.jpg"
           },
           "address": {
             "description": "Address information",
@@ -8302,7 +8302,7 @@
           "webhookUrl": {
             "type": "string",
             "description": "Webhook URL to notify when export is complete",
-            "example": "https://example.com/webhook/export-complete"
+            "example": "https://yourapi.clientcompany.com/webhooks/delightloop/export-complete"
           },
           "shareWithEmail": {
             "type": "string",
@@ -8340,12 +8340,12 @@
           "downloadUrl": {
             "type": "string",
             "description": "Download URL (for file-based exports)",
-            "example": "https://example.com/download/campaign-recipients-xyz.xlsx"
+            "example": "https://exports.delightloop.ai/download/campaign-recipients-xyz.xlsx"
           },
           "googleSheetsUrl": {
             "type": "string",
             "description": "Google Sheets URL (for Google Sheets export)",
-            "example": "https://docs.google.com/spreadsheets/d/1ABC123xyz.../edit"
+            "example": "https://docs.google.com/spreadsheets/d/1XYZ789delightloop_export_456/edit"
           },
           "recipientCount": {
             "type": "number",
@@ -8443,7 +8443,7 @@
           },
           "profileImage": {
             "type": "string",
-            "example": "https://example.com/profile.jpg"
+            "example": "https://cdn.delightloop.ai/profiles/user-profile-456.jpg"
           }
         },
         "required": [
@@ -8470,7 +8470,7 @@
           },
           "imageUrl": {
             "type": "string",
-            "example": "https://example.com/gift-image.jpg"
+            "example": "https://cdn.delightloop.ai/gifts/gift-preview-123.jpg"
           },
           "price": {
             "type": "number",
@@ -8487,7 +8487,7 @@
           },
           "trackingLink": {
             "type": "string",
-            "example": "https://tracking.example.com/123"
+            "example": "https://tracking.fedex.com/123"
           }
         },
         "required": [
@@ -8604,7 +8604,7 @@
           },
           "url": {
             "type": "string",
-            "example": "https://example.com/message.mp4"
+            "example": "https://cdn.delightloop.ai/media/personal-message-456.mp4"
           },
           "text": {
             "type": "string",
@@ -8988,7 +8988,7 @@
               "giftId": "gift_123",
               "name": "Premium Gift Box",
               "description": "A premium gift box with assorted items",
-              "imageUrl": "https://example.com/gift.jpg",
+              "imageUrl": "https://cdn.delightloop.ai/gifts/premium-gift-box.jpg",
               "price": 150,
               "currency": "USD",
               "dimensions": {
@@ -9029,7 +9029,7 @@
             "example": {
               "giftCard": {
                 "message": "Thank you for your partnership!",
-                "logoUrl": "https://example.com/logo.png",
+                "logoUrl": "https://cdn.delightloop.ai/assets/gift-card-logo.png",
                 "greetingMessage": "Hi John"
               }
             }
@@ -9065,8 +9065,8 @@
             "type": "object",
             "description": "URLs associated with the recipient",
             "example": {
-              "landingPage": "https://example.com/landing/lg-campaign_123-uuid",
-              "claimPage": "https://example.com/claim/claim_recipient_123"
+              "landingPage": "https://campaigns.delightloop.ai/landing/lg-campaign_123-uuid",
+              "claimPage": "https://campaigns.delightloop.ai/claim/claim_recipient_123"
             }
           }
         },
@@ -11002,7 +11002,7 @@
           "profileImage": {
             "type": "string",
             "description": "Contact profile image URL",
-            "example": "https://example.com/profile/johndoe.jpg"
+            "example": "https://cdn.delightloop.ai/profiles/user-profile-123.jpg"
           },
           "address": {
             "type": "object",
@@ -11134,7 +11134,7 @@
               },
               "online": {
                 "website": "https://www.company.com",
-                "logoUrl": "https://logo.company.com/logo.png",
+                "logoUrl": "https://cdn.delightloop.ai/assets/client-company-logo.png",
                 "description": "Leading provider of enterprise software solutions"
               }
             }

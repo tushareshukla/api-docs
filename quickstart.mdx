@@ -1,80 +1,132 @@
 ---
 title: "Quickstart"
-description: "Start building awesome documentation in minutes"
+description: "Get started with DelightLoop's Campaign API in minutes"
 ---
 
-## Get started in three steps
+## Get started with DelightLoop API
 
-Get your documentation site running locally and make your first customization.
+Learn how to authenticate, create your first contact list, and send a campaign using DelightLoop's powerful API.
 
-### Step 1: Set up your local environment
+### Step 1: Authentication
 
 <AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
+  <Accordion icon="key" title="Get your API key">
+    To use the DelightLoop API, you'll need an API key from your DelightLoop dashboard.
     
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
+    1. Log in to your DelightLoop account
+    2. Navigate to Settings > API Keys
+    3. Generate a new API key for your application
+    4. Store it securely - you'll use it in the `x-api-key` header
   </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
+  <Accordion icon="shield" title="Make your first authenticated request">
+    Test your API key with a simple request:
     
-    <Tip>Your preview updates automatically as you edit files.</Tip>
+    ```bash
+    curl -X GET "https://apiv1.delightloop.ai/api/campaigns/contact-lists" \
+      -H "x-api-key: YOUR_API_KEY_HERE"
+    ```
+    
+    <Tip>All DelightLoop API requests require the `x-api-key` header for authentication.</Tip>
   </Accordion>
 </AccordionGroup>
 
-### Step 2: Deploy your changes
+### Step 2: Create your first contact list
 
 <AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
+  <Accordion icon="users" title="Create a contact list">
+    Contact lists are the foundation of your campaigns. Create one with this simple request:
     
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
-</Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
-
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
-
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
+    ```bash
+    curl -X POST "https://apiv1.delightloop.ai/api/campaigns/contact-lists" \
+      -H "x-api-key: YOUR_API_KEY_HERE" \
+      -H "Content-Type: application/json" \
+      -d '{
+        "name": "My First Contact List",
+        "description": "Getting started with DelightLoop API"
+      }'
+    ```
+  </Accordion>
+  <Accordion icon="user-plus" title="Add contacts to your list">
+    Once you have a contact list, add some contacts:
+    
+    ```bash
+    curl -X POST "https://apiv1.delightloop.ai/api/campaigns/contact-lists/{listId}/contacts" \
+      -H "x-api-key: YOUR_API_KEY_HERE" \
+      -H "Content-Type: application/json" \
+      -d '{
+        "contacts": [
+          {
+            "email": "sarah.johnson@clientcompany.com",
+            "firstName": "Sarah",
+            "lastName": "Johnson"
+          }
+        ]
+      }'
+    ```
+    
+    <Tip>Replace `{listId}` with the ID returned from creating your contact list.</Tip>
   </Accordion>
 </AccordionGroup>
 
-### Step 3: Go live
+### Step 3: Launch your first campaign
 
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
+<Accordion icon="rocket" title="Create and send a campaign">
+  Now create a campaign targeting your contact list:
+  
+  ```bash
+  curl -X POST "https://apiv1.delightloop.ai/api/campaigns" \
+    -H "x-api-key: YOUR_API_KEY_HERE" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "name": "Welcome Campaign",
+      "contactListIds": ["your-contact-list-id"],
+      "templateId": "template-id",
+      "scheduledAt": "2024-12-25T10:00:00Z"
+    }'
+  ```
 </Accordion>
 
 ## Next steps
 
-Now that you have your docs running, explore these key features:
+Now that you've created your first campaign, explore these key features:
 
 <CardGroup cols={2}>
 
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
+<Card title="Contact Management" icon="address-book" href="/api-reference/contact-lists">
+  Learn how to manage contacts and lists effectively.
 </Card>
 
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
+<Card title="Campaign Templates" icon="file-template" href="/api-reference/templates">
+  Discover how to create and customize campaign templates.
 </Card>
 
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
+<Card title="Gift Management" icon="gift" href="/api-reference/gifts">
+  Explore DelightLoop's powerful gift fulfillment features.
 </Card>
 
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
+<Card title="Analytics & Tracking" icon="chart-line" href="/api-reference/recipients">
+  Track campaign performance and recipient engagement.
 </Card>
 
 </CardGroup>
 
+## Common use cases
+
+<AccordionGroup>
+  <Accordion icon="heart" title="Customer appreciation campaigns">
+    Send personalized gifts to your top customers to strengthen relationships and increase retention.
+  </Accordion>
+  <Accordion icon="handshake" title="Client onboarding">
+    Welcome new clients with branded gifts that make a lasting first impression.
+  </Accordion>
+  <Accordion icon="calendar" title="Holiday campaigns">
+    Schedule seasonal campaigns to maintain touchpoints throughout the year.
+  </Accordion>
+  <Accordion icon="trophy" title="Milestone celebrations">
+    Celebrate customer milestones, anniversaries, and achievements automatically.
+  </Accordion>
+</AccordionGroup>
+
 <Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
+  **Need help?** Contact DelightLoop support at [support@delightloop.com](mailto:support@delightloop.com) or visit our [support portal](https://delightloop.com/support).
 </Note>
