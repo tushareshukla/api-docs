@@ -1305,7 +1305,7 @@
         },
         "summary": "Get campaigns with pagination and filtering",
         "tags": [
-          "campaigns"
+          "Campaigns"
         ]
       }
     },
@@ -1441,7 +1441,7 @@
         },
         "summary": "Get campaign recipients with pagination",
         "tags": [
-          "campaigns"
+          "Campaigns"
         ]
       }
     },
@@ -1500,7 +1500,7 @@
         },
         "summary": "Add contacts to a live campaign",
         "tags": [
-          "campaigns"
+          "Campaigns"
         ]
       }
     },
@@ -1550,7 +1550,7 @@
         },
         "summary": "Add a recipient to a campaign with contact details",
         "tags": [
-          "campaigns"
+          "Campaigns"
         ]
       }
     },
@@ -1673,7 +1673,7 @@
         },
         "summary": "Get express-send recipients by campaign ID with status filtering",
         "tags": [
-          "recipients"
+          "Recipients"
         ]
       }
     },
@@ -1769,7 +1769,7 @@
         },
         "summary": "Get templates with pagination and filtering",
         "tags": [
-          "templates"
+          "Templates"
         ]
       }
     },
@@ -1815,7 +1815,7 @@
         },
         "summary": "Get template by ID",
         "tags": [
-          "templates"
+          "Templates"
         ]
       }
     },
