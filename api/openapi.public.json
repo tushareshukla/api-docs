@@ -1518,6 +1518,15 @@
               "example": "camp-abcd1234",
               "type": "string"
             }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "auth key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -2402,6 +2411,13 @@
     }
   ],
   "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key"
+      }
+    },
     "schemas": {
       "ContactListSourceDto": {
         "type": "object",
