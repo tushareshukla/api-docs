@@ -4252,7 +4252,7 @@
           "key": {
             "type": "string",
             "description": "Key for the metadata field",
-            "example": "email_template"
+            "example": "welcome_campaign_template"
           },
           "label": {
             "type": "string",
@@ -4275,7 +4275,7 @@
           "placeholder": {
             "type": "string",
             "description": "Placeholder text for the field",
-            "example": "Enter email template name"
+            "example": "Enter your campaign template name"
           },
           "required": {
             "type": "boolean",
@@ -4382,7 +4382,7 @@
           "key": {
             "type": "string",
             "description": "Key for the metadata field",
-            "example": "email_template"
+            "example": "welcome_campaign_template"
           },
           "label": {
             "type": "string",
@@ -4405,7 +4405,7 @@
           "placeholder": {
             "type": "string",
             "description": "Placeholder text for the field",
-            "example": "Enter email template name"
+            "example": "Enter your campaign template name"
           },
           "required": {
             "type": "boolean",
@@ -6977,12 +6977,12 @@
           "landingPageUrl": {
             "type": "string",
             "description": "Landing page URL for the recipient",
-            "example": "https://dl-public-main-av0.pages.dev/lg/lg-camp-abc123-xyz789"
+            "example": "https://campaigns.delightloop.ai/lg/lg-camp-abc123-xyz789"
           },
           "claimPageUrl": {
             "type": "string",
             "description": "Claim page URL for the recipient",
-            "example": "https://dl-public-main-av0.pages.dev/cl/claim_recipient_456"
+            "example": "https://campaigns.delightloop.ai/cl/claim_recipient_456"
           }
         },
         "required": [
@@ -8502,11 +8502,11 @@
         "properties": {
           "landingPage": {
             "type": "string",
-            "example": "https://dl-public-main-av0.pages.dev/lg/landing_123"
+            "example": "https://campaigns.delightloop.ai/lg/landing_123"
           },
           "claimPage": {
             "type": "string",
-            "example": "https://dl-public-main-av0.pages.dev/cl/claim_123"
+            "example": "https://campaigns.delightloop.ai/cl/claim_123"
           }
         }
       },
@@ -9977,7 +9977,7 @@
           "imageUrl": {
             "type": "string",
             "description": "Template image URL",
-            "example": "https://cdn.example.com/template-preview.png"
+            "example": "https://cdn.delightloop.ai/templates/preview/template-123.png"
           },
           "templateCategory": {
             "type": "string",
@@ -10078,7 +10078,7 @@
           "imageUrl": {
             "type": "string",
             "description": "Template image URL",
-            "example": "https://cdn.example.com/template-preview.png"
+            "example": "https://cdn.delightloop.ai/templates/preview/template-123.png"
           },
           "templateCategory": {
             "type": "string",
@@ -10263,7 +10263,7 @@
           "imageUrl": {
             "type": "string",
             "description": "Template image URL",
-            "example": "https://cdn.example.com/updated-template-preview.png"
+            "example": "https://cdn.delightloop.ai/templates/preview/updated-template-456.png"
           },
           "templateCategory": {
             "type": "string",
@@ -11242,7 +11242,7 @@
           "linkedin_url": {
             "type": "string",
             "description": "LinkedIn URL of the contact",
-            "example": "https://www.linkedin.com/in/demoge/"
+            "example": "https://www.linkedin.com/in/sarah-johnson-marketing/"
           }
         }
       },
