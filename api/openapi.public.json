@@ -2,57 +2,6 @@
   "openapi": "3.0.0",
   "paths": {
     "/api/campaigns/contact-lists": {
-      "post": {
-        "description": "Creates a new contact list within an organization with specified configuration.",
-        "operationId": "ContactListsController_create",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "description": "Contact list creation payload",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateContactListDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Contact list created successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContactListResponseDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid input data"
-          },
-          "409": {
-            "description": "Contact list with the same name already exists"
-          }
-        },
-        "security": [
-          {}
-        ],
-        "summary": "Create a new contact list",
-        "tags": [
-          "Contact Lists"
-        ]
-      },
       "get": {
         "description": "Retrieves all contact lists for an organization with pagination, filters, and aggregated counts of campaign IDs.",
         "operationId": "ContactListsController_getAllContactLists",
@@ -219,117 +168,6 @@
           {}
         ],
         "summary": "Get all contact lists with pagination and filters",
-        "tags": [
-          "Contact Lists"
-        ]
-      }
-    },
-    "/api/campaigns/contact-lists/{listId}": {
-      "put": {
-        "description": "Updates an existing contact list with new information.",
-        "operationId": "ContactListsController_update",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "listId",
-            "required": true,
-            "in": "path",
-            "description": "Contact list identifier",
-            "schema": {
-              "example": "list_67890",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "description": "Contact list update payload",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateContactListDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Contact list updated successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContactListResponseDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid input data"
-          },
-          "404": {
-            "description": "Contact list not found"
-          },
-          "409": {
-            "description": "Contact list with the same name already exists"
-          }
-        },
-        "security": [
-          {}
-        ],
-        "summary": "Update contact list",
-        "tags": [
-          "Contact Lists"
-        ]
-      }
-    },
-    "/api/campaigns/contact-lists/{listId}/archive": {
-      "delete": {
-        "description": "Soft deletes a contact list by marking it as archived.",
-        "operationId": "ContactListsController_archive",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "listId",
-            "required": true,
-            "in": "path",
-            "description": "Contact list identifier",
-            "schema": {
-              "example": "list_67890",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Contact list archived successfully"
-          },
-          "404": {
-            "description": "Contact list not found"
-          },
-          "409": {
-            "description": "Contact list is already archived"
-          }
-        },
-        "security": [
-          {}
-        ],
-        "summary": "Archive contact list",
         "tags": [
           "Contact Lists"
         ]
@@ -540,212 +378,7 @@
         ]
       }
     },
-    "/api/campaigns/contact-lists/{listId}/filter-data": {
-      "get": {
-        "description": "Retrieves unique job titles, companies, and roles/tags for all contacts in a specific list to enable filtering.",
-        "operationId": "ContactListsController_getContactListFilterData",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "listId",
-            "required": true,
-            "in": "path",
-            "description": "Contact list identifier",
-            "schema": {
-              "example": "list_clx7k2m0p0001j5k8c5z9w8h4",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Filter data retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FilterDataResponseDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Contact list not found"
-          }
-        },
-        "security": [
-          {}
-        ],
-        "summary": "Get filter data for contacts in list",
-        "tags": [
-          "Contact Lists"
-        ]
-      }
-    },
-    "/api/campaigns/contact-lists/{listId}/contacts": {
-      "post": {
-        "description": "Adds multiple contacts to the specified contact list by contact IDs.",
-        "operationId": "ContactListsController_bulkAddContactsToList",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "listId",
-            "required": true,
-            "in": "path",
-            "description": "Contact list identifier",
-            "schema": {
-              "example": "list_clx7k2m0p0001j5k8c5z9w8h4",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "description": "Contact IDs and optional campaign ID to add to the contact list",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BulkAddContactsToListDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Contacts added to contact list successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BulkAddContactsResponseDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid request or no valid contacts found"
-          },
-          "404": {
-            "description": "Contact list not found"
-          }
-        },
-        "security": [
-          {}
-        ],
-        "summary": "Bulk add contacts to contact list",
-        "tags": [
-          "Contact Lists"
-        ]
-      }
-    },
-    "/api/campaigns/contacts/schema": {
-      "get": {
-        "operationId": "ContactsController_getContactSchema",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "summary": "Get contact schema definition",
-        "tags": [
-          "Contacts"
-        ]
-      }
-    },
-    "/api/campaigns/contacts/form": {
-      "get": {
-        "operationId": "ContactsController_getContactForm",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Contact form structure retrieved successfully"
-          }
-        },
-        "summary": "Get contact form structure for frontend",
-        "tags": [
-          "Contacts"
-        ]
-      }
-    },
     "/api/campaigns/contacts": {
-      "post": {
-        "operationId": "ContactsController_createContact",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateContactDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Contact created successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContactResponseDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          }
-        },
-        "summary": "Create a new contact",
-        "tags": [
-          "Contacts"
-        ]
-      },
       "get": {
         "description": "Retrieves all contacts in the organization with optional search filtering and pagination. Search is optional - omit to get all contacts.",
         "operationId": "ContactsController_getAllContacts",
@@ -814,711 +447,7 @@
         ]
       }
     },
-    "/api/campaigns/contacts/bulk": {
-      "post": {
-        "operationId": "ContactsController_bulkCreateContacts",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BulkCreateContactsDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Bulk contact creation completed",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BulkCreateResponseDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          }
-        },
-        "summary": "Create multiple contacts in bulk",
-        "tags": [
-          "Contacts"
-        ]
-      }
-    },
-    "/api/campaigns/contacts/search": {
-      "get": {
-        "description": "Search for contacts by name, email, company, job title, or tags. Returns contact details along with the list IDs they belong to.",
-        "operationId": "ContactsController_searchContacts",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "query",
-            "required": true,
-            "in": "query",
-            "description": "Search query to match against contact fields",
-            "schema": {
-              "example": "john@example.com",
-              "type": "string"
-            }
-          },
-          {
-            "name": "page",
-            "required": false,
-            "in": "query",
-            "description": "Page number (starts from 1)",
-            "schema": {
-              "minimum": 1,
-              "example": 1,
-              "type": "number"
-            }
-          },
-          {
-            "name": "limit",
-            "required": false,
-            "in": "query",
-            "description": "Number of results per page",
-            "schema": {
-              "minimum": 1,
-              "maximum": 100,
-              "example": 12,
-              "type": "number"
-            }
-          },
-          {
-            "name": "viewOrg",
-            "required": false,
-            "in": "query",
-            "description": "View all organization contacts (true) or only user default list contacts (false)",
-            "schema": {
-              "example": false,
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Contacts search results with pagination",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SearchContactsResponseDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          }
-        },
-        "summary": "Search contacts with contact details and list IDs",
-        "tags": [
-          "Contacts"
-        ]
-      }
-    },
-    "/api/campaigns/contacts/{contactId}": {
-      "get": {
-        "description": "Retrieves detailed contact information by contact ID",
-        "operationId": "ContactsController_getContactById",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "contactId",
-            "required": true,
-            "in": "path",
-            "description": "Contact identifier",
-            "schema": {
-              "example": "contact_123abc",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Contact details retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContactResponseDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Contact not found"
-          }
-        },
-        "summary": "Get contact details by contact ID",
-        "tags": [
-          "Contacts"
-        ]
-      },
-      "put": {
-        "description": "Updates contact information. Email and address changes are tracked in history arrays.",
-        "operationId": "ContactsController_updateContact",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "contactId",
-            "required": true,
-            "in": "path",
-            "description": "Contact identifier",
-            "schema": {
-              "example": "contact_123abc",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateContactDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Contact updated successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContactResponseDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "404": {
-            "description": "Contact not found"
-          }
-        },
-        "summary": "Update contact details",
-        "tags": [
-          "Contacts"
-        ]
-      }
-    },
-    "/api/campaigns/contacts/{contactId}/lists/{listId}": {
-      "delete": {
-        "description": "Removes a contact from a specific contact list. Contact and list remain in database, only the association is removed.",
-        "operationId": "ContactsController_removeContactFromList",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "contactId",
-            "required": true,
-            "in": "path",
-            "description": "Contact identifier",
-            "schema": {
-              "example": "contact_123abc",
-              "type": "string"
-            }
-          },
-          {
-            "name": "listId",
-            "required": true,
-            "in": "path",
-            "description": "Contact list identifier",
-            "schema": {
-              "example": "list_123abc456def",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Contact removed from list successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "success": {
-                      "type": "boolean"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Contact or list not found"
-          }
-        },
-        "summary": "Remove contact from a list",
-        "tags": [
-          "Contacts"
-        ]
-      }
-    },
-    "/api/campaigns/contacts/lists/{listId}/contacts/remove": {
-      "post": {
-        "description": "Removes multiple contacts from a specific contact list in a single operation. Contacts remain in database, only associations are removed.",
-        "operationId": "ContactsController_bulkRemoveContactsFromList",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "listId",
-            "required": true,
-            "in": "path",
-            "description": "Contact list identifier",
-            "schema": {
-              "example": "list_123abc456def",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BulkRemoveContactsDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Contacts removed from list successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BulkRemoveResponseDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "404": {
-            "description": "Contact list not found"
-          }
-        },
-        "summary": "Remove multiple contacts from a list",
-        "tags": [
-          "Contacts"
-        ]
-      }
-    },
-    "/api/campaigns/contacts/enrichment/linkedin": {
-      "get": {
-        "description": "Calls LinkedIn via RapidAPI using the provided profile URL and returns a minimized contact profile.",
-        "operationId": "ContactsController_getLinkedInProfileByUrl",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "url",
-            "required": true,
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "LinkedIn profile data (or null)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LinkedInProfileResponseDto"
-                }
-              }
-            }
-          }
-        },
-        "summary": "Fetch LinkedIn profile data by URL (no persistence)",
-        "tags": [
-          "Contacts"
-        ]
-      }
-    },
-    "/api/campaigns/contacts/lists/{listId}/analytics": {
-      "get": {
-        "description": "Provides detailed analytics for contacts in a specific list including job titles, companies, locations, email domains, tags, and sources with their respective counts.",
-        "operationId": "ContactsController_getContactListAnalytics",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "listId",
-            "required": true,
-            "in": "path",
-            "description": "Contact list identifier",
-            "schema": {
-              "example": "list_123abc456def",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Contact list analytics retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContactListAnalyticsResponseDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Contact list not found"
-          }
-        },
-        "summary": "Get analytics for a contact list",
-        "tags": [
-          "Contacts"
-        ]
-      }
-    },
-    "/api/campaigns/contacts/lists/analytics": {
-      "post": {
-        "description": "Provides detailed analytics for contacts across multiple lists including job titles, companies, locations, email domains, tags, and sources with their respective counts.",
-        "operationId": "ContactsController_getContactListsAnalytics",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContactListsAnalyticsDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Contact lists analytics retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContactListAnalyticsResponseDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "404": {
-            "description": "One or more contact lists not found"
-          }
-        },
-        "summary": "Get analytics for multiple contact lists",
-        "tags": [
-          "Contacts"
-        ]
-      }
-    },
-    "/api/campaigns/contacts/bulk-details": {
-      "post": {
-        "description": "Retrieves complete contact details for an array of contact IDs. Returns full contact objects with all available information.",
-        "operationId": "ContactsController_getContactsByIds",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BulkGetContactsDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Contact details retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ContactResponseDto"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          }
-        },
-        "summary": "Get contact details for multiple contact IDs",
-        "tags": [
-          "Contacts"
-        ]
-      }
-    },
-    "/api/campaigns/companies/schema": {
-      "get": {
-        "operationId": "CompaniesController_getCompanySchema",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "summary": "Get company schema definition",
-        "tags": [
-          "Companies"
-        ]
-      }
-    },
-    "/api/campaigns/companies/form": {
-      "get": {
-        "operationId": "CompaniesController_getCompanyForm",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Company form structure retrieved successfully"
-          }
-        },
-        "summary": "Get company form structure for frontend",
-        "tags": [
-          "Companies"
-        ]
-      }
-    },
-    "/api/campaigns/companies/search": {
-      "get": {
-        "description": "Search for companies by name, domain, industry, or tags. Returns company details along with the list IDs they belong to.",
-        "operationId": "CompaniesController_searchCompanies",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "query",
-            "required": true,
-            "in": "query",
-            "description": "Search query to match against company fields",
-            "schema": {
-              "example": "tech corp",
-              "type": "string"
-            }
-          },
-          {
-            "name": "page",
-            "required": false,
-            "in": "query",
-            "description": "Page number (starts from 1)",
-            "schema": {
-              "minimum": 1,
-              "example": 1,
-              "type": "number"
-            }
-          },
-          {
-            "name": "limit",
-            "required": false,
-            "in": "query",
-            "description": "Number of results per page",
-            "schema": {
-              "minimum": 1,
-              "maximum": 100,
-              "example": 12,
-              "type": "number"
-            }
-          },
-          {
-            "name": "viewOrg",
-            "required": false,
-            "in": "query",
-            "description": "View all organization companies (true) or only user default list companies (false)",
-            "schema": {
-              "example": false,
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Companies search results with pagination",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SearchCompaniesResponseDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          }
-        },
-        "summary": "Search companies with company details and list IDs",
-        "tags": [
-          "Companies"
-        ]
-      }
-    },
     "/api/campaigns/companies": {
-      "post": {
-        "operationId": "CompaniesController_createCompany",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCompanyDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Company created successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CompanyResponseDto"
-                }
-              }
-            }
-          }
-        },
-        "summary": "Create a new company",
-        "tags": [
-          "Companies"
-        ]
-      },
       "get": {
         "operationId": "CompaniesController_findCompanies",
         "parameters": [
@@ -1630,161 +559,9 @@
         "tags": [
           "Companies"
         ]
-      },
-      "patch": {
-        "operationId": "CompaniesController_updateCompany",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "companyId",
-            "required": true,
-            "in": "path",
-            "description": "Company ID",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateCompanyDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Company updated successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CompanyResponseDto"
-                }
-              }
-            }
-          }
-        },
-        "summary": "Update company by ID",
-        "tags": [
-          "Companies"
-        ]
-      },
-      "delete": {
-        "operationId": "CompaniesController_deleteCompany",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "companyId",
-            "required": true,
-            "in": "path",
-            "description": "Company ID",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Company deleted successfully"
-          }
-        },
-        "summary": "Delete company by ID",
-        "tags": [
-          "Companies"
-        ]
-      }
-    },
-    "/api/campaigns/companies/bulk": {
-      "post": {
-        "operationId": "CompaniesController_bulkCreateCompanies",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Companies created successfully"
-          }
-        },
-        "summary": "Bulk create companies",
-        "tags": [
-          "Companies"
-        ]
       }
     },
     "/api/campaigns/companies/lists": {
-      "post": {
-        "operationId": "CompaniesController_createCompanyList",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCompanyListDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Company list created successfully"
-          }
-        },
-        "summary": "Create a new company list",
-        "tags": [
-          "Companies"
-        ]
-      },
       "get": {
         "operationId": "CompaniesController_findCompanyLists",
         "parameters": [
@@ -1828,238 +605,6 @@
           }
         },
         "summary": "Get company lists with filtering and pagination",
-        "tags": [
-          "Companies"
-        ]
-      }
-    },
-    "/api/campaigns/companies/lists/{listId}": {
-      "get": {
-        "operationId": "CompaniesController_findCompanyList",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "listId",
-            "required": true,
-            "in": "path",
-            "description": "Company list ID",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Company list retrieved successfully"
-          }
-        },
-        "summary": "Get company list by ID",
-        "tags": [
-          "Companies"
-        ]
-      },
-      "patch": {
-        "operationId": "CompaniesController_updateCompanyList",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "listId",
-            "required": true,
-            "in": "path",
-            "description": "Company list ID",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateCompanyListDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Company list updated successfully"
-          }
-        },
-        "summary": "Update company list by ID",
-        "tags": [
-          "Companies"
-        ]
-      },
-      "delete": {
-        "operationId": "CompaniesController_deleteCompanyList",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "listId",
-            "required": true,
-            "in": "path",
-            "description": "Company list ID",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Company list deleted successfully"
-          }
-        },
-        "summary": "Delete company list by ID",
-        "tags": [
-          "Companies"
-        ]
-      }
-    },
-    "/api/campaigns/companies/lists/{listId}/companies": {
-      "post": {
-        "operationId": "CompaniesController_addCompaniesToList",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "listId",
-            "required": true,
-            "in": "path",
-            "description": "Company list ID",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddCompaniesToListDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Companies added to list successfully"
-          }
-        },
-        "summary": "Add companies to a list",
-        "tags": [
-          "Companies"
-        ]
-      },
-      "get": {
-        "operationId": "CompaniesController_getCompaniesInList",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "listId",
-            "required": true,
-            "in": "path",
-            "description": "Company list ID",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "page",
-            "required": true,
-            "in": "query",
-            "schema": {
-              "type": "number"
-            }
-          },
-          {
-            "name": "limit",
-            "required": true,
-            "in": "query",
-            "schema": {
-              "type": "number"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Companies in list retrieved successfully"
-          }
-        },
-        "summary": "Get companies in a list",
-        "tags": [
-          "Companies"
-        ]
-      },
-      "delete": {
-        "operationId": "CompaniesController_removeCompaniesFromList",
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "description": "auth key",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "listId",
-            "required": true,
-            "in": "path",
-            "description": "Company list ID",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Companies removed from list successfully"
-          }
-        },
-        "summary": "Remove companies from a list",
         "tags": [
           "Companies"
         ]
@@ -4540,7 +3085,7 @@
                             "properties": {
                               "email": {
                                 "type": "string",
-                                "example": "invalid@email.com"
+                                "example": "invalid-format@email"
                               },
                               "error": {
                                 "type": "string",
@@ -4635,7 +3180,7 @@
   },
   "info": {
     "title": "DelightLoop Campaign Service API",
-    "description": "Comprehensive API documentation for DelightLoop Campaign Service. Manage contact lists, campaigns, recipients, gifts, and more.",
+    "description": "DelightLoop Campaign Service API enables businesses to create personalized customer experiences through automated campaigns. Manage contact lists, design multi-touch campaigns, track recipients, handle gift fulfillment, and analyze engagement metrics. Our platform helps you build stronger customer relationships through thoughtful, data-driven interactions.",
     "version": "1.0.0",
     "contact": {
       "name": "DelightLoop Support",
@@ -5064,7 +3609,7 @@
         "properties": {
           "mailId": {
             "type": "string",
-            "example": "john.doe@techcorp.com"
+            "example": "sarah.johnson@clientcompany.com"
           },
           "phoneNumber": {
             "type": "string",
@@ -5299,7 +3844,7 @@
           },
           "mailId": {
             "type": "string",
-            "example": "john.doe@techcorp.com"
+            "example": "sarah.johnson@clientcompany.com"
           },
           "phoneNumber": {
             "type": "string",
@@ -5573,7 +4118,7 @@
           },
           "mailId": {
             "type": "string",
-            "example": "john.doe@techcorp.com"
+            "example": "sarah.johnson@clientcompany.com"
           },
           "phoneNumber": {
             "type": "string",
@@ -5864,7 +4409,7 @@
           "mailId": {
             "type": "string",
             "description": "Email address",
-            "example": "john.doe@example.com"
+            "example": "michael.chen@clientcompany.com"
           },
           "phoneNumber": {
             "type": "string",
@@ -6409,7 +4954,7 @@
           "to": {
             "type": "string",
             "description": "Recipient email address",
-            "example": "recipient@example.com"
+            "example": "recipient@clientcompany.com"
           },
           "subject": {
             "type": "string",
@@ -7768,7 +6313,7 @@
           "html": {
             "type": "string",
             "description": "HTML content with placeholders in {{placeholder}} format",
-            "example": "<h1>Hello {{firstName}}</h1><p>Welcome to {{organizationName}}!</p>"
+            "example": "<h1>Hello {{firstName}}</h1><p>Thank you for your business with DelightLoop! {{companyName}} appreciates your partnership.</p>"
           }
         },
         "required": [
@@ -8340,7 +6885,7 @@
           "email": {
             "type": "string",
             "description": "Email address to search for",
-            "example": "john.doe@example.com"
+            "example": "michael.chen@clientcompany.com"
           }
         }
       },
@@ -8382,7 +6927,7 @@
                 },
                 "email": {
                   "type": "string",
-                  "example": "john.doe@example.com"
+                  "example": "michael.chen@clientcompany.com"
                 },
                 "company": {
                   "type": "string",
@@ -8445,7 +6990,7 @@
                     },
                     "email": {
                       "type": "string",
-                      "example": "john@example.com"
+                      "example": "john.davis@clientcompany.com"
                     },
                     "companyName": {
                       "type": "string",
@@ -8486,7 +7031,7 @@
                               },
                               "email": {
                                 "type": "string",
-                                "example": "john.doe@example.com"
+                                "example": "michael.chen@clientcompany.com"
                               },
                               "company": {
                                 "type": "string",
@@ -8771,7 +7316,7 @@
           "email": {
             "type": "string",
             "description": "Email address",
-            "example": "john.doe@example.com"
+            "example": "michael.chen@clientcompany.com"
           },
           "company": {
             "type": "string",
@@ -9097,7 +7642,7 @@
         "properties": {
           "email": {
             "type": "string",
-            "example": "john.doe@techcorp.com",
+            "example": "sarah.johnson@clientcompany.com",
             "description": "Email address of the recipient"
           },
           "firstName": {
@@ -10556,7 +9101,7 @@
           "shareWithEmail": {
             "type": "string",
             "description": "Email to share Google Sheet with editor access (required for google_sheets format)",
-            "example": "user@example.com"
+            "example": "user@clientcompany.com"
           }
         },
         "required": [
@@ -10648,7 +9193,7 @@
           },
           "email": {
             "type": "string",
-            "example": "john.doe@example.com"
+            "example": "michael.chen@clientcompany.com"
           },
           "company": {
             "type": "string",
@@ -11385,7 +9930,7 @@
           "orgName": {
             "type": "string",
             "description": "Organization name",
-            "example": "delightloop"
+            "example": "acme-corp"
           }
         },
         "required": [
@@ -13200,7 +11745,7 @@
           "mailId": {
             "type": "string",
             "description": "Contact email address",
-            "example": "john.doe@example.com"
+            "example": "michael.chen@clientcompany.com"
           },
           "firstName": {
             "type": "string",
