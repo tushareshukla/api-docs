@@ -95,16 +95,10 @@
     ]
   },
   "api": {
-    "baseUrl": [
-      {
-        "name": "Production",
-        "url": "https://apiv1.delightloop.ai"
-      },
-      {
-        "name": "Labs",
-        "url": "https://labs-api-gateway.patchup.health"
-      }
-    ]
+    "baseUrl": {
+      "Production": "https://apiv1.delightloop.ai",
+      "Labs": "https://labs-api-gateway.patchup.health"
+    }
   },
   "footer": {
     "socials": {
