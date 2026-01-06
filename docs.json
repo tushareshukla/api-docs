@@ -94,6 +94,18 @@
       "vscode"
     ]
   },
+  "api": {
+    "baseUrl": [
+      {
+        "name": "Production",
+        "url": "https://apiv1.delightloop.ai"
+      },
+      {
+        "name": "Labs",
+        "url": "https://labs-api-gateway.patchup.health"
+      }
+    ]
+  },
   "footer": {
     "socials": {
       "linkedin": "https://linkedin.com/company/delightloop"

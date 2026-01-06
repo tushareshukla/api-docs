@@ -22,7 +22,7 @@ Learn how to authenticate, create your first contact list, and send a campaign u
     Test your API key with a simple request:
     
     ```bash
-    curl -X GET "https://apiv1.delightloop.ai/api/campaigns/contact-lists" \
+    curl -X GET "{{api.baseUrl}}/api/campaigns/contact-lists" \
       -H "x-api-key: YOUR_API_KEY_HERE"
     ```
     
@@ -37,7 +37,7 @@ Learn how to authenticate, create your first contact list, and send a campaign u
     Contact lists are the foundation of your campaigns. Create one with this simple request:
     
     ```bash
-    curl -X POST "https://apiv1.delightloop.ai/api/campaigns/contact-lists" \
+    curl -X POST "{{api.baseUrl}}/api/campaigns/contact-lists" \
       -H "x-api-key: YOUR_API_KEY_HERE" \
       -H "Content-Type: application/json" \
       -d '{
@@ -50,7 +50,7 @@ Learn how to authenticate, create your first contact list, and send a campaign u
     Once you have a contact list, add some contacts:
     
     ```bash
-    curl -X POST "https://apiv1.delightloop.ai/api/campaigns/contact-lists/{listId}/contacts" \
+    curl -X POST "{{api.baseUrl}}/api/campaigns/contact-lists/{listId}/contacts" \
       -H "x-api-key: YOUR_API_KEY_HERE" \
       -H "Content-Type: application/json" \
       -d '{
@@ -74,7 +74,7 @@ Learn how to authenticate, create your first contact list, and send a campaign u
   Now create a campaign targeting your contact list:
   
   ```bash
-  curl -X POST "https://apiv1.delightloop.ai/api/campaigns" \
+  curl -X POST "{{api.baseUrl}}/api/campaigns" \
     -H "x-api-key: YOUR_API_KEY_HERE" \
     -H "Content-Type: application/json" \
     -d '{

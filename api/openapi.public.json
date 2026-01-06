@@ -2408,6 +2408,10 @@
     {
       "url": "https://apiv1.delightloop.ai",
       "description": "Production server"
+    },
+    {
+      "url": "https://labs-api-gateway.patchup.health",
+      "description": "Labs server"
     }
   ],
   "components": {
