@@ -32,9 +32,11 @@ npm i -g mint
 pnpm add -g mint
 ```
 
-3. Run the development server:
+3. Run the development server (use this so Node 20 is used; do **not** run `npx mint dev` directly — Mintlify does not support Node 25+):
 ```bash
-mint dev
+./dev.sh
+# or
+npm run dev
 ```
 
 4. View your local preview at `http://localhost:3000` (or the port shown in the terminal).
