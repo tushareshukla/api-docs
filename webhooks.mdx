@@ -1,116 +1,485 @@
 ---
 title: Webhooks
-description: Receive real-time notifications from DelightLoop
+description: Receive real-time webhook event payloads from the DelightLoop campaign service
 ---
 
-Webhooks allow you to receive real-time notifications when events occur in your DelightLoop account, eliminating the need to poll the API.
+Get real-time notifications when campaigns and recipients change. Every webhook uses the same envelope; only `eventData` varies by event type.
 
-## How Webhooks Work
+## Webhook envelope
 
-1. **Register a webhook URL** in your DelightLoop account settings
-2. **DelightLoop sends HTTP POST requests** to your URL when events occur
-3. **Your server processes the webhook** and responds with a 200 status code
+Every delivery uses this **envelope structure**:
 
-## Webhook Events
+<Accordion icon="envelope" title="Envelope structure and field reference">
+  | Field | Type | Description |
+  |-------|------|-------------|
+  | **eventId** | string | Unique per delivery — use for idempotency / deduplication |
+  | **webhookId** | string | The subscription ID that triggered this delivery |
+  | **eventType** | string | Dot-notation event name (e.g. `campaign.created`) |
+  | **orgId** | string | Organization ID the event belongs to |
+  | **userId** | string | User ID who triggered the action |
+  | **eventData** | object | Event-specific payload — schema is fixed per `eventType` |
+  | **resourceId** | object | Primary resource: `resource` (`campaign` \| `recipient`) and `resourceId` |
 
-DelightLoop supports the following webhook events:
+  **Example envelope:**
 
-- **`campaign.created`**: A new campaign is created
-- **`campaign.updated`**: A campaign is updated
-- **`campaign.completed`**: A campaign is completed
-- **`recipient.status_changed`**: A recipient's status changes
-- **`recipient.delivered`**: A gift is delivered to a recipient
-- **`recipient.acknowledged`**: A recipient acknowledges receipt
-- **`contact_list.created`**: A new contact list is created
-- **`contact_list.updated`**: A contact list is updated
-
-## Webhook Payload Format
-
-All webhooks follow this structure:
-
-```json
-{
-  "event": "recipient.status_changed",
-  "timestamp": "2024-01-15T10:30:00.000Z",
-  "data": {
-    "recipientId": "recipient_123",
-    "campaignId": "camp_456",
-    "oldStatus": "invite_sent",
-    "newStatus": "address_confirmed"
+  ```json
+  {
+    "eventId": "whevt-V1StGXR8_Z5jdHi6B-myT",
+    "webhookId": "wh_sub_abc123",
+    "eventType": "campaign.created",
+    "orgId": "org_abc123",
+    "userId": "user_789",
+    "eventData": { ... },
+    "resourceId": { "resource": "campaign", "resourceId": "camp-456" }
   }
-}
-```
+  ```
+</Accordion>
 
-## Webhook Security
+## Supported event types
 
-### Signature Verification
+| # | Event Type | Resource | Description |
+|---|------------|----------|-------------|
+| 1 | `campaign.created` | campaign | A new campaign was created |
+| 2 | `campaign.updated` | campaign | Campaign fields were modified |
+| 3 | `campaign.status_changed` | campaign | Campaign status transitioned |
+| 4 | `campaign.deleted` | campaign | Campaign was deleted |
+| 5 | `campaign.recipients_added` | campaign | Recipients were added to a campaign |
+| 6 | `recipient.created` | recipient | A new recipient was added |
+| 7 | `recipient.status_changed` | recipient | Recipient status transitioned |
+| 8 | `recipient.email_sent` | recipient | An email was sent to a recipient |
+| 9 | `recipient.feedback_submitted` | recipient | Recipient submitted feedback |
 
-DelightLoop signs all webhook requests with a secret key. Verify the signature to ensure the request is authentic:
+<CardGroup cols={2}>
+  <Card title="Campaign events" icon="bullhorn" href="#campaign-events">
+    Schema and examples for campaign lifecycle events.
+  </Card>
+  <Card title="Recipient events" icon="user-check" href="#recipient-events">
+    Schema and examples for recipient and delivery events.
+  </Card>
+</CardGroup>
 
-```javascript
-const crypto = require('crypto');
+---
 
-function verifyWebhookSignature(payload, signature, secret) {
-  const hmac = crypto.createHmac('sha256', secret);
-  const digest = hmac.update(JSON.stringify(payload)).digest('hex');
-  return crypto.timingSafeEqual(
-    Buffer.from(signature),
-    Buffer.from(digest)
-  );
-}
+## Campaign events
 
-// Usage
-app.post('/webhook', express.raw({ type: 'application/json' }), (req, res) => {
-  const signature = req.headers['x-delightloop-signature'];
-  const isValid = verifyWebhookSignature(req.body, signature, process.env.WEBHOOK_SECRET);
-  
-  if (!isValid) {
-    return res.status(401).send('Invalid signature');
-  }
-  
-  // Process webhook
-  const event = JSON.parse(req.body);
-  // ... handle event
-  
-  res.status(200).send('OK');
-});
-```
+<AccordionGroup>
+  <Accordion icon="plus" title="campaign.created">
+    Fired when a new campaign is created.
 
-### Headers
+    **`eventData` schema:**
 
-Webhook requests include the following headers:
+    | Field | Type | Required | Description |
+    |-------|------|----------|-------------|
+    | campaignId | string | yes | Campaign ID |
+    | name | string | yes | Campaign name |
+    | description | string | no | Campaign description |
+    | status | string | yes | e.g. `draft`, `preparing`, `live`, `completed` |
+    | createdBy | string | yes | User ID of creator |
+    | createdAt | string (ISO 8601) | no | Creation timestamp |
+    | goal | object | no | `{ goalId, name }` |
+    | motion | object | no | `{ motionId, name }` |
+    | budget | object | no | `{ totalAmount, currency }` |
+    | target_recipient_count | number | yes | Target/expected recipient count |
+    | recipient_in_camp | number | yes | Actual count |
+    | recipient_details | array | yes | `[{ fname, lname, email }]` |
 
-- **`X-DelightLoop-Event`**: The event type
-- **`X-DelightLoop-Signature`**: HMAC SHA256 signature
-- **`X-DelightLoop-Timestamp`**: Unix timestamp of the event
-- **`Content-Type`**: `application/json`
+    **Example:**
 
-## Webhook Response
+    ```json
+    {
+      "eventId": "whevt-V1StGXR8_Z5jdHi6B-myT",
+      "webhookId": "wh_sub_abc123",
+      "eventType": "campaign.created",
+      "orgId": "org_abc123",
+      "userId": "user_789",
+      "eventData": {
+        "campaignId": "camp-456",
+        "name": "Q4 Enterprise Outreach",
+        "description": "Q4 outreach for enterprise accounts",
+        "status": "draft",
+        "createdBy": "user_789",
+        "createdAt": "2025-12-23T11:00:00Z",
+        "goal": { "goalId": "goal_1", "name": "Enterprise Gifting" },
+        "motion": { "motionId": "motion_1", "name": "Holiday Campaign" },
+        "budget": { "totalAmount": 50000, "currency": "USD" },
+        "target_recipient_count": 100,
+        "recipient_in_camp": 100,
+        "recipient_details": [
+          { "fname": "John", "lname": "Doe", "email": "john@example.com" }
+        ]
+      },
+      "resourceId": { "resource": "campaign", "resourceId": "camp-456" }
+    }
+    ```
+  </Accordion>
 
-Your webhook endpoint should:
+  <Accordion icon="pen" title="campaign.updated">
+    Fired when one or more campaign fields are modified.
 
-1. **Return 200 OK** within 5 seconds to acknowledge receipt
-2. **Process the event asynchronously** if handling takes longer
-3. **Return appropriate error codes** if processing fails
+    **`eventData` schema:**
 
-## Retry Logic
+    | Field | Type | Required | Description |
+    |-------|------|----------|-------------|
+    | campaignId | string | yes | Campaign ID |
+    | name | string | no | Current name |
+    | description | string | no | Current description |
+    | status | string | yes | Current status |
+    | lastUpdatedBy | string | no | User ID who performed update |
+    | updatedAt | string (ISO 8601) | no | Update timestamp |
+    | goal | object | no | `{ goalId, name }` |
+    | motion | object | no | `{ motionId, name }` |
+    | budget | object | no | `{ totalAmount, currency }` |
+    | fieldChanges | array | yes | `[{ field, previousValue, newValue }]` |
 
-If your webhook endpoint doesn't respond with 200 OK, DelightLoop will retry:
+    **Example:**
 
-- **Initial retry**: After 1 minute
-- **Subsequent retries**: Exponential backoff (2, 4, 8, 16 minutes)
-- **Maximum retries**: 5 attempts
-- **Total time**: Up to 31 minutes
+    ```json
+    {
+      "eventId": "whevt-KpR2xYZ7_A3bNq9C-def",
+      "webhookId": "wh_sub_abc123",
+      "eventType": "campaign.updated",
+      "orgId": "org_abc123",
+      "userId": "user_789",
+      "eventData": {
+        "campaignId": "camp-456",
+        "name": "Q4 Enterprise Outreach v2",
+        "status": "draft",
+        "lastUpdatedBy": "user_789",
+        "updatedAt": "2025-12-24T09:30:00Z",
+        "fieldChanges": [
+          { "field": "name", "previousValue": "Q4 Enterprise Outreach", "newValue": "Q4 Enterprise Outreach v2" },
+          { "field": "budget.totalAmount", "previousValue": 50000, "newValue": 75000 }
+        ]
+      },
+      "resourceId": { "resource": "campaign", "resourceId": "camp-456" }
+    }
+    ```
+  </Accordion>
 
-## Testing Webhooks
+  <Accordion icon="arrows-rotate" title="campaign.status_changed">
+    Fired when a campaign transitions from one status to another.
 
-Use the webhook testing tool in your DelightLoop dashboard to send test events to your endpoint.
+    **`eventData` schema:**
 
-## Best Practices
+    | Field | Type | Required | Description |
+    |-------|------|----------|-------------|
+    | campaignId | string | yes | Campaign ID |
+    | name | string | yes | Campaign name |
+    | previousStatus | string | yes | Status before change |
+    | currentStatus | string | yes | Status after change |
+    | statusChangedBy | string | yes | User ID who changed status |
+    | statusChangedAt | string (ISO 8601) | yes | When status changed |
 
-1. **Verify signatures** to ensure webhook authenticity
-2. **Idempotency**: Handle duplicate events gracefully
-3. **Async processing**: Process events asynchronously when possible
-4. **Logging**: Log all webhook events for debugging
-5. **Error handling**: Return appropriate status codes
+    **Example:**
 
+    ```json
+    {
+      "eventId": "whevt-Lm8nOPQ1_R4cDs5E-ghi",
+      "webhookId": "wh_sub_abc123",
+      "eventType": "campaign.status_changed",
+      "orgId": "org_abc123",
+      "userId": "user_789",
+      "eventData": {
+        "campaignId": "camp-456",
+        "name": "Q4 Enterprise Outreach v2",
+        "previousStatus": "draft",
+        "currentStatus": "live",
+        "statusChangedBy": "user_789",
+        "statusChangedAt": "2025-12-25T08:00:00Z"
+      },
+      "resourceId": { "resource": "campaign", "resourceId": "camp-456" }
+    }
+    ```
+  </Accordion>
+
+  <Accordion icon="trash" title="campaign.deleted">
+    Fired when a campaign is deleted.
+
+    **`eventData` schema:**
+
+    | Field | Type | Required | Description |
+    |-------|------|----------|-------------|
+    | campaignId | string | yes | Campaign ID |
+    | name | string | no | Campaign name at delete time |
+    | status | string | yes | Status at delete time |
+    | deletedBy | string | no | User ID who deleted |
+    | deletedAt | string (ISO 8601) | yes | When deleted |
+
+    **Example:**
+
+    ```json
+    {
+      "eventId": "whevt-Wx9yZAB2_C5dEf6G-jkl",
+      "webhookId": "wh_sub_abc123",
+      "eventType": "campaign.deleted",
+      "orgId": "org_abc123",
+      "userId": "user_789",
+      "eventData": {
+        "campaignId": "camp-456",
+        "name": "Q4 Enterprise Outreach v2",
+        "status": "draft",
+        "deletedBy": "user_789",
+        "deletedAt": "2026-01-10T14:00:00Z"
+      },
+      "resourceId": { "resource": "campaign", "resourceId": "camp-456" }
+    }
+    ```
+  </Accordion>
+
+  <Accordion icon="user-plus" title="campaign.recipients_added">
+    Fired when recipients are added to a campaign (manually, bulk upload, or booth QR).
+
+    **`eventData` schema:**
+
+    | Field | Type | Required | Description |
+    |-------|------|----------|-------------|
+    | campaignId | string | yes | Campaign ID |
+    | campaignName | string | no | Campaign name |
+    | campaignStatus | string | yes | Current campaign status |
+    | recipientsAdded.count | number | yes | Number of recipients added |
+    | recipientsAdded.recipientIds | string[] | no | IDs of added recipients |
+    | recipientsAdded.recipient_details | array | no | `[{ fname, lname, email }]` |
+    | recipientsAdded.addedBy | string | no | User ID who added |
+    | recipientsAdded.addedAt | string (ISO 8601) | yes | When recipients were added |
+
+    **Example:**
+
+    ```json
+    {
+      "eventId": "whevt-Gh3iJKL4_M6nOp7Q-mno",
+      "webhookId": "wh_sub_abc123",
+      "eventType": "campaign.recipients_added",
+      "orgId": "org_abc123",
+      "userId": "user_789",
+      "eventData": {
+        "campaignId": "camp-456",
+        "campaignName": "Q4 Enterprise Outreach v2",
+        "campaignStatus": "live",
+        "recipientsAdded": {
+          "count": 2,
+          "recipientIds": ["rec-101", "rec-102"],
+          "recipient_details": [
+            { "fname": "Alice", "lname": "Smith", "email": "alice@example.com" },
+            { "fname": "Bob", "lname": "Johnson", "email": "bob@example.com" }
+          ],
+          "addedBy": "user_789",
+          "addedAt": "2025-12-26T10:00:00Z"
+        }
+      },
+      "resourceId": { "resource": "campaign", "resourceId": "camp-456" }
+    }
+    ```
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Recipient events
+
+<AccordionGroup>
+  <Accordion icon="user" title="recipient.created">
+    Fired when a new recipient is added to a campaign.
+
+    **`eventData` schema:**
+
+    | Field | Type | Required | Description |
+    |-------|------|----------|-------------|
+    | recipientId | string | yes | Recipient ID |
+    | campaignId | string | yes | Campaign ID |
+    | contactDetails | object | yes | `{ firstName, lastName, email }` |
+    | sourceType | string | yes | How added: `manual`, `bulk`, `booth`, etc. |
+    | status | string | yes | Initial status (e.g. `draft`) |
+    | gift | object | no | Gift data: `gifts[]`, `giftBudget`, `giftExpirationDate`, `giftMode`, `selectedCatalogId` |
+    | createdAt | string (ISO 8601) | yes | When the recipient was created |
+
+    **`eventData.gift.gifts[]` (each item):** `id`, `name`, `description`, `imageUrl`, `price`, `currency`, `budget`
+
+    **Example (single gift):**
+
+    ```json
+    {
+      "eventId": "whevt-Rs8tUVW5_X7yZa9B-pqr",
+      "webhookId": "wh_sub_abc123",
+      "eventType": "recipient.created",
+      "orgId": "org_abc123",
+      "userId": "user_789",
+      "eventData": {
+        "recipientId": "rec-101",
+        "campaignId": "camp-456",
+        "contactDetails": {
+          "firstName": "Alice",
+          "lastName": "Smith",
+          "email": "alice@example.com"
+        },
+        "sourceType": "manual",
+        "status": "draft",
+        "gift": {
+          "gifts": [
+            {
+              "id": "gift-d584a61e-9bb4-473f-8ede-a8bb5debbd95",
+              "name": "Premium Gift Box",
+              "price": 120,
+              "currency": "USD",
+              "budget": 120
+            }
+          ],
+          "giftBudget": 120,
+          "giftExpirationDate": "2026-03-07",
+          "giftMode": "one-gift-for-all",
+          "selectedCatalogId": "default"
+        },
+        "createdAt": "2025-12-26T10:00:00Z"
+      },
+      "resourceId": { "resource": "recipient", "resourceId": "rec-101" }
+    }
+    ```
+  </Accordion>
+
+  <Accordion icon="truck" title="recipient.status_changed">
+    Fired when a recipient's status transitions (e.g. `draft` → `invite_sent` → `address_confirmed` → `in_transit` → `delivered`).
+
+    **`eventData` schema:**
+
+    | Field | Type | Required | Description |
+    |-------|------|----------|-------------|
+    | recipientId | string | yes | Recipient ID |
+    | campaignId | string | yes | Campaign ID |
+    | previousStatus | string | yes | Status before change |
+    | currentStatus | string | yes | Status after change |
+    | statusChangedAt | string (ISO 8601) | yes | When status changed |
+    | contactDetails | object | no | `{ firstName, lastName, email }` |
+    | shipmentInfo | object | no | Shipment details (no `status` field) |
+    | carrierDetails | object | no | When `currentStatus` is `in_transit`: `{ name, trackingId, trackingUrl }` |
+
+    **Example (status → `in_transit`):**
+
+    ```json
+    {
+      "eventId": "whevt-Cd2eFGH6_I8jKl0M-stu",
+      "webhookId": "wh_sub_abc123",
+      "eventType": "recipient.status_changed",
+      "orgId": "org_abc123",
+      "userId": "user_789",
+      "eventData": {
+        "recipientId": "rec-101",
+        "campaignId": "camp-456",
+        "previousStatus": "address_confirmed",
+        "currentStatus": "in_transit",
+        "statusChangedAt": "2025-12-28T15:30:00Z",
+        "contactDetails": {
+          "firstName": "Alice",
+          "lastName": "Smith",
+          "email": "alice@example.com"
+        },
+        "carrierDetails": {
+          "name": "FedEx",
+          "trackingId": "FEDEX123456789",
+          "trackingUrl": "https://fedex.com/track/FEDEX123456789"
+        }
+      },
+      "resourceId": { "resource": "recipient", "resourceId": "rec-101" }
+    }
+    ```
+  </Accordion>
+
+  <Accordion icon="envelope" title="recipient.email_sent">
+    Fired when any email is sent to a recipient (invite, confirmation, reminder, etc.).
+
+    **`eventData` schema:**
+
+    | Field | Type | Required | Description |
+    |-------|------|----------|-------------|
+    | recipientId | string | yes | Recipient ID |
+    | campaignId | string | yes | Campaign ID |
+    | contactDetails | object | yes | `{ firstName, lastName, email }` |
+    | emailType | string | yes | e.g. `invite_sent`, `address_confirmed`, `reminder` |
+    | sentAt | string (ISO 8601) | yes | When email was sent |
+
+    **Example:**
+
+    ```json
+    {
+      "eventId": "whevt-Ab5cDEF8_G0hIj2K-yza",
+      "webhookId": "wh_sub_abc123",
+      "eventType": "recipient.email_sent",
+      "orgId": "org_abc123",
+      "userId": "user_789",
+      "eventData": {
+        "recipientId": "rec-101",
+        "campaignId": "camp-456",
+        "contactDetails": {
+          "firstName": "Alice",
+          "lastName": "Smith",
+          "email": "alice@example.com"
+        },
+        "emailType": "invite_sent",
+        "sentAt": "2025-12-26T10:05:00Z"
+      },
+      "resourceId": { "resource": "recipient", "resourceId": "rec-101" }
+    }
+    ```
+  </Accordion>
+
+  <Accordion icon="message" title="recipient.feedback_submitted">
+    Fired when a recipient submits feedback (rating, text, video, or audio).
+
+    **`eventData` schema:**
+
+    | Field | Type | Required | Description |
+    |-------|------|----------|-------------|
+    | recipientId | string | yes | Recipient ID |
+    | campaignId | string | yes | Campaign ID |
+    | contactDetails | object | yes | `{ firstName, lastName, email }` |
+    | feedback.rating | object | no | `{ value: "like" \| "dislike", submittedAt }` |
+    | feedback.message | object | no | `{ type: "video" \| "audio" \| "text", url?, text?, submittedAt }` |
+    | submittedAt | string (ISO 8601) | yes | When feedback was submitted |
+
+    **Example (rating + text):**
+
+    ```json
+    {
+      "eventId": "whevt-Lm3nOPQ9_R1sTu4V-bcd",
+      "webhookId": "wh_sub_abc123",
+      "eventType": "recipient.feedback_submitted",
+      "orgId": "org_abc123",
+      "userId": "user_789",
+      "eventData": {
+        "recipientId": "rec-101",
+        "campaignId": "camp-456",
+        "contactDetails": {
+          "firstName": "Alice",
+          "lastName": "Smith",
+          "email": "alice@example.com"
+        },
+        "feedback": {
+          "rating": { "value": "like", "submittedAt": "2026-01-02T09:00:00Z" },
+          "message": {
+            "type": "text",
+            "text": "Loved the gift! Thank you so much!",
+            "submittedAt": "2026-01-02T09:00:30Z"
+          }
+        },
+        "submittedAt": "2026-01-02T09:00:30Z"
+      },
+      "resourceId": { "resource": "recipient", "resourceId": "rec-101" }
+    }
+    ```
+  </Accordion>
+</AccordionGroup>
+
+---
+
+
+## Important notes
+
+<Tip>
+  **Idempotency:** Use `eventId` to deduplicate. It is unique per delivery.
+</Tip>
+
+- All timestamps are **ISO 8601** in UTC.
+- `carrierDetails` appears on `recipient.status_changed` only when `currentStatus` is `in_transit`.
+- `feedback.rating.value` is `"like"` or `"dislike"`. `feedback.message.type` is `"video"`, `"audio"`, or `"text"`.
+
+<Note>
+  **Need help?** Visit the [support portal](https://delightloop.com/support) or contact DelightLoop support.
+</Note>
